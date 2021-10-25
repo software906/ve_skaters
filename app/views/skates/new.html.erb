@@ -5,7 +5,8 @@
     <%= simple_form_for @skate do |f| %>
     <%= f.input :precio_dia, label: "precio por dia"%>
     <%= f.input :descripcion, label: "Descripcion"%>
-    <%= f.input :ubicacion, label: "ubicacion"%>
+    <%= f.input :ubicacion, label: "ubicacion", as: :select, collection: ['la urbina', 'chacao', 'el marques', 'la trinidad', 'el paraiso']%>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
   </div>

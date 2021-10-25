@@ -35,6 +35,6 @@ class SkatesController < ApplicationController
   private
 
   def skate_params
-    params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion)
+    params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion, :photo)
   end
 end
