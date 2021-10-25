@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_191155) do
     t.integer "precio_dia"
     t.text "descripcion"
     t.text "ubicacion"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

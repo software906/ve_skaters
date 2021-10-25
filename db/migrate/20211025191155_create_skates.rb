@@ -4,7 +4,7 @@ class CreateSkates < ActiveRecord::Migration[6.0]
       t.integer :precio_dia
       t.text :descripcion
       t.text :ubicacion
-      t.boolean :status
+      t.boolean :status, default: true
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
