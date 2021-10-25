@@ -10,6 +10,7 @@ const initUpdateNavbarOnScroll = () => {
         <input type="submit" name="" value="Search">
       </form>`
       document.getElementById("box-nav").innerHTML = nav_search;
+      document.getElementById("box").innerHTML = "";
     } else if (window.pageYOffset < 100){
       nav.classList.remove('bg-dark', 'shadow');
       document.getElementById("box-nav").innerHTML = "";
