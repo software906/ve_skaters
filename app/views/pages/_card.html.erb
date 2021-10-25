@@ -1,12 +1,21 @@
-<div class="card" style="width: 18rem;">
-        <div class = "card-image card-img-top">
-            <%= render "carousel" %>
+<div class="card mb-4" style="width: 18rem;">
+    <div class = "card-image card-img-top">
+        <%= render "carousel", images: images%>
+    </div>
+    <div class="card-body">
+        <div class = "d-flex justify-content-between">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">$5/dia</p>
         </div>
-        <div class="card-body">
-            <div class = "d-flex justify-content-between">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">$5/dia</p>
-            </div> 
-            <h6 class="card-subtitle text-muted">Distancia</h6>                     
+        <div class = "d-flex justify-content-between">
+            <h6 class="card-subtitle text-muted mt-1">Distancia</h6>
+            <div class = "d-flex justify-content-between mt-1">
+                <i class="fas fa-star star-yellow"></i>
+                <i class="fas fa-star star-yellow"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                </div>                
+            </div>                               
         </div>
     </div>
