@@ -3,8 +3,9 @@
 <h2>Agrega nueva Skate</h2>
   <div class="col-12 col-md-8 col-lg-4 p-3 rounded mb-lg-5 bg-white text-dark">
     <%= simple_form_for @skate do |f| %>
-    <%= f.input :name, label: "nombre de la lista"%>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :precio_dia, label: "precio por dia"%>
+    <%= f.input :descripcion, label: "Descripcion"%>
+    <%= f.input :ubicacion, label: "ubicacion"%>
     <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
   </div>

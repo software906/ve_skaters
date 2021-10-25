@@ -13,6 +13,14 @@ class SkatesController < ApplicationController
   end
 
   def create
+    @skate = Skate.new(skate_params)
+    @skate.user = current_user
+    if @skate.save
+      redirect_to skates_path
+    else
+      render :new
+    end
+
   end
 
   def update
@@ -22,5 +30,11 @@ class SkatesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def skate_params
+    params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion)
   end
 end
