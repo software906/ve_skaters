@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h1> Skates </h1>
+  <% if user_signed_in? %>
+  <div class="btn-group">
+    <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      <%= link_to "+ Crear nueva skate", new_skate_path %></font></font>
+    </button>
+  </div>
+  <% end  %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @skates.each do |skate| %>
+      <div class="col-6">
+        <div class="card mb-4 mt-4">
+          <div class="card-img-overlay">
+            <h2 class="card-title"><%= link_to skate.id, skate_path(skate), class: "text-white" %></h2>
+            <h2><%= skate.descripcion %></h2>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
