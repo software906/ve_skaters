@@ -1,5 +1,5 @@
 class SkatesController < ApplicationController
-  skip_before_action :autheticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @skates = Skate.all
