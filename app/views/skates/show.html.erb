@@ -1,2 +1,11 @@
-<h1>Skates#show</h1>
-<p>Find me in app/views/skates/show.html.erb</p>
+<%= render "/shared/navbar2" %>
+
+<div class = "container">
+    <div class = "product-details">
+    </div>
+    <div class = "d-flex justify-content-between">
+        <%= render "shared/carousel", photos: @skate.photos, id_name: @skate.id%>
+        <div class = "map">
+        </div>
+    </div>
+</div>
