@@ -9,12 +9,28 @@
   <% end  %>
 </div>
 
+<div class = "container mt-5 pt-5">
+    <div class = "d-flex mb-5">
+        <h5 class = "mr-2"> Ordenar por: </h5>
+        <%= render "shared/dropdown"%>
+    </div>
+    <div class = "cards d-flex flex-wrap justify-content-between">
+        <% @skates.each do |skate| %>        
+            <%= render "shared/card", skate: skate%>
+        <% end %>             
+    </div>    
+</div>
+<%
+=begin%>
+ 
 <div class="container">
   <div class="row">
     <% @skates.each do |skate| %>
       <div class="col-6">
         <div class="card mb-4 mt-4">
-          <%= cl_image_tag skate.photo.key, height: 200, crop: :fill %>
+          <% skate.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 200, crop: :fit %>
+          <% end %>          
           <div class="card-body">
             <h2 class="card-title"><%= link_to skate.id, skate_path(skate), class: "text-white" %></h2>
             <h2 class="card-title"><%= skate.descripcion %></h2>
@@ -31,4 +47,6 @@
       </div>
     <% end %>
   </div>
-</div>
+</div> 
+<%
+=end%>
