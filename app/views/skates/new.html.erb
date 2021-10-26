@@ -6,7 +6,7 @@
     <%= f.input :precio_dia, label: "precio por dia"%>
     <%= f.input :descripcion, label: "Descripcion"%>
     <%= f.input :ubicacion, label: "ubicacion", as: :select, collection: ['la urbina', 'chacao', 'el marques', 'la trinidad', 'el paraiso']%>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class: "btn btn-primary" %>
     <% end %>
   </div>
