@@ -5,6 +5,38 @@
   width: 500px;
   transform: translate(-50%, -50%);
   margin-top: 10px;
+
+  input{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+    transition: .5s;
+  }
+
+  input[type="text"]{
+    background: #fff;
+    width: 250px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 25px 0 0 25px;
+  }
+
+  input[type="submit"]{
+    position: relative;
+    border-radius: 0 25px 25px 0;
+    width: 150px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+    background: #ffc107;
+    color: #fff;
+  }
+
+  input[type="submit"]:hover{
+    background: #ff5722;
+  }
 }
 
 .box-nav{
@@ -13,7 +45,7 @@
   left: 50%;
   width: 400px;
   transform: translate(-50%, -50%);
-  margin-top: 10px;
+
 
   h1{
   margin: 0 0 10px;
@@ -56,43 +88,46 @@
 }
 
 
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .box-nav {
+    margin-left: 20px;
+    width: 200px;
+    input[type="text"]{
+      width: 100px;
+  }
 
+  input[type="submit"]{
+    width: 80px;
+  }
 
-h1{
-  margin: 0 0 10px;
-  padding: 0;
-  color: #fff;
-  font-size: 24px;
+  }
 }
 
-input{
-  position: relative;
-  display: inline-block;
-  font-size: 20px;
-  box-sizing: border-box;
-  transition: .5s;
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards-home {
+    grid-template-columns: 1fr;
+  }
 }
 
-input[type="text"]{
-  background: #fff;
-  width: 250px;
-  height: 50px;
-  border: none;
-  outline: none;
-  border-radius: 25px 0 0 25px;
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards-home {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-input[type="submit"]{
-  position: relative;
-  border-radius: 0 25px 25px 0;
-  width: 150px;
-  height: 50px;
-  outline: none;
-  cursor: pointer;
-  background: #ffc107;
-  color: #fff;
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards-home {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
-input[type="submit"]:hover{
-  background: #ff5722;
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards-home {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

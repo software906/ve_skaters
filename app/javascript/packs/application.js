@@ -27,6 +27,7 @@ import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { getMap } from '../components/map'
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
