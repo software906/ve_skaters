@@ -4,9 +4,13 @@ class SkatesController < ApplicationController
 
   def index
     @skates = policy_scope(Skate.all)
+    @skates = Skate.filter_by_price_desc if (params[:filter] == "price-desc")
+    @skates = Skate.filter_by_price_asc if (params[:filter] == "price-asc")
+    @skates = Skate.location if (params[:filter] == "ubicacion")
   end
   
   def show
+    
   end
 
   def new
