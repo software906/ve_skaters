@@ -4,7 +4,7 @@ class SkatesController < ApplicationController
   def index
     @skates = policy_scope(Skate.all)
   end
-
+  
   def show
   end
 
