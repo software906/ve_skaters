@@ -12,4 +12,8 @@ class SkatePolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def edit?
+    return true
+  end
 end
