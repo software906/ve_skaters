@@ -95,19 +95,26 @@
     width: 200px;
     input[type="text"]{
       width: 100px;
-  }
+    }
 
-  input[type="submit"]{
-    width: 80px;
-  }
-
+    input[type="submit"]{
+      width: 80px;
+    }
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .cards-home {
-    grid-template-columns: 1fr;
+  .box-nav {
+    margin-left: 20px;
+    width: 250px;
+    input[type="text"]{
+      width: 120px;
+    }
+
+    input[type="submit"]{
+      width: 90px;
+    }
   }
 }
 
