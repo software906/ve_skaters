@@ -10,6 +10,7 @@ class SkatesController < ApplicationController
 
   def new
     @skate = Skate.new
+    authorize @skate
   end
 
   def create
@@ -20,7 +21,6 @@ class SkatesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def update
