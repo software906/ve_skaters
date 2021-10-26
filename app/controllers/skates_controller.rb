@@ -38,6 +38,7 @@ class SkatesController < ApplicationController
 
   def set_skate
     @skate = Skate.find(params[:id])
+    authorize @skate
   end
 
   def skate_params
