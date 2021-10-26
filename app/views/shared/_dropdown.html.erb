@@ -3,8 +3,9 @@
     Filtrar
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Precio</a>
-    <a class="dropdown-item" href="#">Ubicacion</a>
+    <%= link_to "Precio Desc", skates_path(filter: "price-desc"), class:"dropdown-item"%>
+    <%= link_to "Precio Asc", skates_path(filter: "price-asc"), class:"dropdown-item"%>
+    <%= link_to "Ubicacion", skates_path(filter: "ubicacion"), class:"dropdown-item"%>
     <a class="dropdown-item" href="#">Popularidad</a>
   </div>
 </div>

@@ -1,5 +1,6 @@
-<div class="d-flex justify-content-between align-items-center">
-  <h1> Skates </h1>
+<%= render "/shared/navbar2" %>
+
+<div class="d-flex justify-content-between align-items-center mt-5 pt-5">
   <% if user_signed_in? %>
   <div class="btn-group">
     <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
@@ -9,26 +10,18 @@
   <% end  %>
 </div>
 
-<div class="container">
-  <div class="row">
-    <% @skates.each do |skate| %>
-      <div class="col-6">
-        <div class="card mb-4 mt-4">
-          <%= cl_image_tag skate.photo.key, height: 200, crop: :fill %>
-          <div class="card-body">
-            <h2 class="card-title"><%= link_to skate.id, skate_path(skate), class: "text-white" %></h2>
-            <h2 class="card-title"><%= skate.descripcion %></h2>
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Reservar</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><%= skate.ubicacion%></button>
-                </div>
-                <small class="text-muted">Precio: <%= skate.precio_dia %> $</small>
-              </div>
-          </div>
+<div class = "cards-container m-5 p-5">
+    <div class = "filter mb-5">
+        <h5 class = "mr-2"> Ordenar por: </h5>
+        <%= render "shared/dropdown"%>
+    </div>
+    <div class = "cards d-flex flex-wrap justify-content-between">
 
-        </div>
-      </div>
-    <% end %>
-  </div>
+        <% @skates.each do |skate| %> 
+          <%= link_to skate_path(skate), class:'text-decoration-none' do %>       
+            <%= render "shared/card", skate: skate%>
+          <% end %>   
+        <% end %>             
+    </div>    
 </div>
+
