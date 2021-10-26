@@ -2,7 +2,7 @@ class SkatesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @skates = Skate.all
+    @skates = policy_scope(Skate.all)
   end
 
   def show
@@ -10,17 +10,18 @@ class SkatesController < ApplicationController
 
   def new
     @skate = Skate.new
+    authorize @skate
   end
 
   def create
     @skate = Skate.new(skate_params)
     @skate.user = current_user
+    authorize @skate
     if @skate.save
       redirect_to skates_path
     else
       render :new
     end
-
   end
 
   def update
