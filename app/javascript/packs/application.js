@@ -26,7 +26,7 @@ require("channels")
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
-import { prueba } from '../components/prueba';
+import { getMap } from '../components/map'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,7 +36,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
-  prueba();
+  getMap();
 });
 
 console.log("Hello from app/javascript/packs/application.js!");
