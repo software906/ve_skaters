@@ -14,7 +14,9 @@
     <% @skates.each do |skate| %>
       <div class="col-6">
         <div class="card mb-4 mt-4">
-          <%= cl_image_tag skate.photo.key, height: 200, crop: :fill %>
+          <% skate.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+          <% end %>          
           <div class="card-body">
             <h2 class="card-title"><%= link_to skate.id, skate_path(skate), class: "text-white" %></h2>
             <h2 class="card-title"><%= skate.descripcion %></h2>

@@ -1,0 +1,13 @@
+<div class = "container mt-5 pt-5">
+    <div class = "d-flex mb-5">
+        <h5 class = "mr-2"> Ordenar por: </h5>
+        <%= render "dropdown"%>
+    </div>
+    <div class = "cards d-flex flex-wrap justify-content-between">
+        <% 4.times do%>
+            <%= render "card", images: %w[patineta1.jpg patineta2.jpg patineta3.jpg], id_name:"carousel1" %>
+            <%= render "card", images: %w[patineta4.jpg patineta5.jpg patineta6.jpg], id_name:"carousel2" %>
+            <%= render "card", images: %w[patineta7.jpg patineta8.jpg patineta9.jpg], id_name:"carousel3" %>
+        <%end%>    
+    </div>    
+</div>
