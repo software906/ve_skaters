@@ -1,4 +1,5 @@
 class SkatesController < ApplicationController
+  before_action :set_skate, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
@@ -34,6 +35,10 @@ class SkatesController < ApplicationController
   end
 
   private
+
+  def set_skate
+    @skate = Skate.find(params[:id])
+  end
 
   def skate_params
     params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion, photos: [])
