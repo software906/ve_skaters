@@ -1,8 +1,8 @@
 const initUpdateNavbarOnScroll = () => {
-  const nav = document.getElementById('navbar-home');
+  const nav = document.getElementById('navbar');
 
   window.addEventListener('scroll', function () {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 250) {
       nav.classList.add('bg-dark', 'shadow');
       const nav_search = `
       <form action="#">
@@ -11,7 +11,8 @@ const initUpdateNavbarOnScroll = () => {
       </form>`
       document.getElementById("box-nav").innerHTML = nav_search;
       document.getElementById("box").innerHTML = "";
-    } else if (window.pageYOffset < 100){
+    }
+    if (window.pageYOffset === 0 || window.pageYOffset < 100 ) {
       nav.classList.remove('bg-dark', 'shadow');
       document.getElementById("box-nav").innerHTML = "";
       const nav_search = `
