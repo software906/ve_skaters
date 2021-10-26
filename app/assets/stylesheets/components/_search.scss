@@ -7,6 +7,57 @@
   margin-top: 10px;
 }
 
+.box-nav{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
+
+  h1{
+  margin: 0 0 10px;
+  padding: 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+  input{
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: .5s;
+  }
+
+  input[type="text"]{
+    background: #fff;
+    width: 250px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 25px 0 0 25px;
+  }
+
+  input[type="submit"]{
+    position: relative;
+    border-radius: 0 25px 25px 0;
+    width: 100px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    background: #ffc107;
+    color: #fff;
+  }
+
+  input[type="submit"]:hover{
+    background: #ff5722;
+  }
+}
+
+
+
+
 h1{
   margin: 0 0 10px;
   padding: 0;
