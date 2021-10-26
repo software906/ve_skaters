@@ -1,5 +1,6 @@
-<div class="d-flex justify-content-between align-items-center">
-  <h1> Skates </h1>
+<%= render "/shared/navbar2" %>
+
+<div class="d-flex justify-content-between align-items-center mt-5 pt-5">
   <% if user_signed_in? %>
   <div class="btn-group">
     <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
@@ -9,16 +10,18 @@
   <% end  %>
 </div>
 
-<div class = "container mt-5 pt-5">
-    <div class = "d-flex mb-5">
+<div class = "cards-container m-5 p-5">
+    <div class = "filter mb-5">
         <h5 class = "mr-2"> Ordenar por: </h5>
         <%= render "shared/dropdown"%>
     </div>
     <div class = "cards d-flex flex-wrap justify-content-between">
-        <% @skates.each do |skate| %>        
+
+        <% @skates.each do |skate| %> 
+          <%= link_to skate_path(skate), class:'text-decoration-none' do %>       
             <%= render "shared/card", skate: skate%>
+          <% end %>   
         <% end %>             
     </div>    
 </div>
 
-<%=select_tag "people", options_from_collection_for_select( %w[a b c f] )%>
