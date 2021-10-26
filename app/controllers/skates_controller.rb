@@ -4,7 +4,7 @@ class SkatesController < ApplicationController
   def index
     @skates = Skate.all
   end
-
+  
   def show
   end
 
