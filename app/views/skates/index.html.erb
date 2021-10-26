@@ -15,10 +15,9 @@
         <%= render "shared/dropdown"%>
     </div>
     <div class = "cards d-flex flex-wrap justify-content-between">
-        <% @skates.each do |skate| %>        
+        <% @skates.each do |skate| %>
             <%= render "shared/card", skate: skate%>
-        <% end %>             
-    </div>    
+        <% end %>
+    </div>
 </div>
 
-<%=select_tag "people", options_from_collection_for_select( %w[a b c f] )%>
