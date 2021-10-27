@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 2021_10_26_225241) do
+ActiveRecord::Schema.define(version: 2021_10_27_135838) do
 
 
   # These are extensions that must be enabled in order to support this database
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_225241) do
     t.bigint "skate_id", null: false
     t.bigint "user_id", null: false
     t.integer "price_total"
-    t.datetime "time_from"
+    t.date "time_from"
     t.datetime "time_to"
     t.boolean "status"
     t.text "descripcion"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2021_10_26_225241) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["skate_id"], name: "index_bookings_on_skate_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
 
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
@@ -89,7 +91,6 @@ ActiveRecord::Schema.define(version: 2021_10_26_225241) do
 
   add_foreign_key "bookings", "skates"
   add_foreign_key "bookings", "users"
-
   add_foreign_key "reviews", "skates"
 
   add_foreign_key "skates", "users"
