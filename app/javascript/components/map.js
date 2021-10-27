@@ -1,12 +1,12 @@
 // Imports
 import mapboxgl from 'mapbox-gl';
 
-console.log("helpppppp");
   // Solicitar coordenadas a la API
 const getMap = () => {
   // Constantes
     const apiKey = 'pk.eyJ1IjoiY3Jpc3RpYW0xNCIsImEiOiJja3VpcW1qcHkwY2k4MnBvNjR6NHBqcWFtIn0.t0R1MNl0wh8gQbADchcfAg';
-    const direccion = "caracas"
+    const direccion = `VE, caracas, ${document.getElementById('ubicacion').innerText}`;
+    console.log(direccion);
     const baseUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion}.json?access_token=${apiKey}`;
   // Auxiliares
     mapboxgl.accessToken = apiKey;
@@ -22,8 +22,7 @@ const getMap = () => {
     new mapboxgl.Marker()
       .setLngLat(coord)
       .addTo(map);
-    };
-    console.log(baseUrl);
+    };    
     fetch(baseUrl)
       .then(response => response.json())
       .then((data) => {
