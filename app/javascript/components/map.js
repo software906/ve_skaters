@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl';
 const getMap = () => {
   // Constantes
     const apiKey = 'pk.eyJ1IjoiY3Jpc3RpYW0xNCIsImEiOiJja3VpcW1qcHkwY2k4MnBvNjR6NHBqcWFtIn0.t0R1MNl0wh8gQbADchcfAg';
-    const direccion = `VE, caracas, ${document.getElementById('ubicacion').innerText}`;
+    //const direccion = `VE, caracas, ${document.getElementById('ubicacion').innerText}`;
     console.log(direccion);
     const baseUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion}.json?access_token=${apiKey}`;
   // Auxiliares
@@ -22,7 +22,7 @@ const getMap = () => {
     new mapboxgl.Marker()
       .setLngLat(coord)
       .addTo(map);
-    };    
+    };
     fetch(baseUrl)
       .then(response => response.json())
       .then((data) => {

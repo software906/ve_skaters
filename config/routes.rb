@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :skates do
-    resources :bookings, only: [:new, :create]    
+    resources :bookings, only: [:new, :create]
     resources :reviews, only: :create
   end
   resources :reviews, only: :destroy

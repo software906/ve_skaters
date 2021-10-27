@@ -15,10 +15,7 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div id="box-nav" class="box-nav">
-          <form action="#">
-            <input type="text" name="" placeholder="   Type...">
-            <input type="submit" name="" value="Search">
-          </form>
+
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="mx-auto"></div>
@@ -42,8 +39,7 @@
                 <a class="dropdown-item" href="#"><%= current_user.email%></a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/skates/new">Add product</a>
-                <a class="dropdown-item" href="#">Desconectar</a>
-                <%= link_to "Salir", destroy_user_session_path(current_user), method: :delete, data: { confirm: "Seguro de cerrar sesion?" }, class: "dropdown-item" %>
+                <%= link_to "Desconectar", destroy_user_session_path(current_user), method: :delete, data: { confirm: "Seguro de cerrar sesion?" }, class: "dropdown-item" %>
                 <%else%>
                 <a class="dropdown-item" href="/users/sign_up">regístrate</a>
                 <a class="dropdown-item" href="/users/sign_in">Inicia sesión</a>

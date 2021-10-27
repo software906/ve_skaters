@@ -1,13 +1,30 @@
-
-<div class="row justify-content-center">
-<h2>Agrega nueva Skate</h2>
-  <div class="col-12 col-md-8 col-lg-4 p-3 rounded mb-lg-5 bg-white text-dark">
-    <%= simple_form_for @skate do |f| %>
-    <%= f.input :precio_dia, label: "precio por dia"%>
-    <%= f.input :descripcion, label: "Descripcion"%>
-    <%= f.input :ubicacion, label: "ubicacion", as: :select, collection: ['La urbina', 'Chacao', 'El marques', 'La trinidad', 'El paraiso']%>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-    <% end %>
+<%= render "shared/navbar2" %>
+<div class="wrapper mt-5 mb-5 mx-auto">
+  <div class="title-text">
+      <div class="title signup">
+         Agrega nueva Skate
+      </div>
+   </div>
+   <div class="form-container">
+      <div class="form-inner">
+         <%= simple_form_for @skate do |f| %>
+          <div class="field">
+             <%= f.input :precio_dia, label: "precio por dia"%>
+          </div>
+          <div class="field">
+            <%= f.input :descripcion, label: "Descripcion"%>
+          </div>
+          <div class="field">
+            <%= f.input :ubicacion, label: "ubicacion", as: :select, collection: ['La urbina', 'Chacao', 'El marques', 'La trinidad', 'El paraiso', 'Fuerte tiuna', 'Zoologico', 'La madariaga']%>
+          </div>
+          <div class="field">
+            <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <%= f.button :submit, "Crear Skate" %>
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>

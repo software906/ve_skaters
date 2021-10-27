@@ -5,20 +5,19 @@ const initUpdateNavbarOnScroll = () => {
     if (window.pageYOffset > 250) {
       nav.classList.add('bg-dark', 'shadow');
       const nav_search = `
-      <form action="#">
-        <input type="text" name="" placeholder="   Type...">
-        <input type="submit" name="" value="Search">
+      <form action="skates/" method="get">
+        <input type="text" name="search" placeholder="   Type...">
+        <input type="submit" value="Search">
       </form>`
       document.getElementById("box-nav").innerHTML = nav_search;
       document.getElementById("box").innerHTML = "";
-    }
-    if (window.pageYOffset === 0 || window.pageYOffset < 100 ) {
+    } else if (window.pageYOffset < 100) {
       nav.classList.remove('bg-dark', 'shadow');
       document.getElementById("box-nav").innerHTML = "";
       const nav_search = `
-      <form action="#">
-        <input type="text" name="" placeholder="   Type...">
-        <input type="submit" name="" value="Search">
+      <form action="skates/" method="get">
+        <input type="text" name="search" placeholder="   Type...">
+        <input type="submit" value="Search">
       </form>`
       document.getElementById("box").innerHTML = nav_search;
     }else{
