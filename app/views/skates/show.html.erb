@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 <h1>Skates#show</h1>
 <p>Find me in app/views/skates/show.html.erb</p>
 <%= @skate.descripcion %>
-=======
+
 <%= render "/shared/navbar2" %>
 
 <div class = "container mt-5 pt-5">
@@ -12,10 +12,15 @@
         <div class = "col-6">
             <%= render "shared/carouselShow", photos: @skate.photos, id_name: @skate.id%>
         </div>
-        <div class = "col-6">    
+        <div class = "col-6">
             <%= render "shared/map" %>
-        </div>    
+        </div>
+        <div class = "col-6">
+            <%= simple_form_for [@skate, @booking] do |f| %>
+            <%= f.input :time_from, label: "pelicula", as: :select, collection: @movies.each { |movie| movie.title }%>
+            <%= f.input :time_to, label: "descripcion de la reseña" %>
+            <%= f.button :submit, class: "btn btn-primary" %>
+            <% end %>
+        </div>
     </div>
 </div>
-
->>>>>>> 96b5856af546e785ecc57c276244abc06287cf59
