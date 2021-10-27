@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
       @review = Review.new(review_params)
       @skate = Skate.find(params[:skate_id])
       @review.skate = @skate
+      authorize @skate 
       if @review.save
         redirect_to skate_path(@skate)
       else
@@ -22,5 +23,5 @@ class ReviewsController < ApplicationController
       params.require(:review).permit(:comment, :rating)
     end
   
-  end
+end
   
