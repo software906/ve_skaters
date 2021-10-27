@@ -1,0 +1,33 @@
+<%= render "shared/navbar2" %>
+<div class="wrapper mx-auto mt-5">
+  <div class="form-container">
+    <h2 class="text-center">Log in</h2>
+       <div class="form-inner">
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: "login") do |f| %>
+             <div class="field">
+               <%= f.input :email,
+                           required: false,
+                           autofocus: true,
+                           placeholder: "Email Address",
+                           input_html: { autocomplete: "email" } %>
+             </div>
+             <div class="field">
+               <%= f.input :password,
+                           required: false,
+                           placeholder: "Password",
+                           input_html: { autocomplete: "current-password" } %>
+             </div>
+             <div class="pass-link mt-4">
+                <% -if devise_mapping.recoverable? && controller_name != "passwords" && controller_name != "registrations" %>
+                  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                <% end %>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+             </div>
+             <div class="field btn">
+               <div class="btn-layer"></div>
+               <%= f.button :submit, "Login" %>
+             </div>
+          <% end %>
+       </div>
+    </div>
+</div>

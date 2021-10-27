@@ -1,5 +1,5 @@
 const initUpdateNavbarOnScroll = () => {
-  const nav = document.getElementById('navbar');
+  const nav = document.getElementById('navbar-inicial');
 
   window.addEventListener('scroll', function () {
     if (window.pageYOffset > 250) {
