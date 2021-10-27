@@ -10,7 +10,7 @@ class SkatesController < ApplicationController
   end
   
   def show
-    
+    @review = Review.new(skate: @skate)
   end
 
   def new
