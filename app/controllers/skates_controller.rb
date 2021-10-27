@@ -8,7 +8,7 @@ class SkatesController < ApplicationController
     @skates = Skate.filter_by_price_asc if (params[:filter] == "price-asc")
     @skates = Skate.location if (params[:filter] == "ubicacion")
   end
-  
+
   def show
     @review = Review.new(skate: @skate)
   end
