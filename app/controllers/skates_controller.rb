@@ -9,11 +9,28 @@ class SkatesController < ApplicationController
     @skates = Skate.location if (params[:filter] == "ubicacion")
     @skates = @skates.filter_by_search(params[:search]) if params[:search]
     @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]
+
   end
 
   def show
     @booking = Booking.new
     @review = Review.new(skate: @skate)
+    @markers = {
+                lat: @skate.latitude,
+                lng: @skate.longitude,
+                info_window: render_to_string(partial: "info_window", locals: { skate: @skate })
+              } 
+
+    @reservado = false
+    @review_act = false
+    @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
+    if @reserva.present?
+      @reservado = true
+    end
+    if Booking.find_by(skate_id: @skate, user_id: current_user, status: false)
+
+      @review_act = true
+    end
   end
 
   def new

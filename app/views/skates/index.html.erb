@@ -1,6 +1,8 @@
 <%= render "/shared/navbar2" %>
 
+
 <div class="d-flex justify-content-between align-items-center mt-5 container">
+
   <% if user_signed_in? %>
     <%= link_to new_skate_path, class: "btn btn-lg", style: "border-radius: 15px; color: white; background: #ffc107;" do %>
       <i class="far fa-plus-square"></i> Agregar
@@ -9,7 +11,7 @@
 
 </div>
 
-<div class = "cards-container m-5 p-5">
+<div class = "cards-container m-3 ml-5 mr-5 p-5">
     <div class = "filter mb-5">
         <h5 class = "mr-2"> Ordenar por: </h5>
         <%= render "shared/dropdown"%>
@@ -22,3 +24,4 @@
         <% end %>
     </div>
 </div>
+

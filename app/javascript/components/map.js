@@ -1,35 +1,43 @@
 // Imports
 import mapboxgl from 'mapbox-gl';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
-  // Solicitar coordenadas a la API
-const getMap = () => {
-  // Constantes
-    const apiKey = 'pk.eyJ1IjoiY3Jpc3RpYW0xNCIsImEiOiJja3VpcW1qcHkwY2k4MnBvNjR6NHBqcWFtIn0.t0R1MNl0wh8gQbADchcfAg';
-    //const direccion = `VE, caracas, ${document.getElementById('ubicacion').innerText}`;
-    console.log(direccion);
-    const baseUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${direccion}.json?access_token=${apiKey}`;
-  // Auxiliares
-    mapboxgl.accessToken = apiKey;
-    // Funciones auxiliares
-    const showMap = (coord) => {
-      console.log(coord)
-      const map = new mapboxgl.Map({
-      container: 'map', // container ID
-      style: 'mapbox://styles/mapbox/streets-v11', // style URL
-      center: coord, // starting position [lng, lat]
-      zoom: 12 // starting zoom
-    });
-    new mapboxgl.Marker()
-      .setLngLat(coord)
+
+const buildMap = (mapElement, marker) => {
+  mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+  return new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [ marker.lng, marker.lat ], // starting position [lng, lat]
+    zoom: 13 // starting zoom
+  });
+};
+
+const addMarkersToMap = (map, marker, data) => {  
+  const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+    new mapboxgl.Marker()      
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(map);
-    };
-    fetch(baseUrl)
-      .then(response => response.json())
-      .then((data) => {
-        const coord = data.features[0].center;
-        // coordinates.innerText = `${coord[1]}, ${coord[0]}`;
-        showMap(coord);
-      });
-  };
-  getMap();
-  export { getMap };
+
+    new mapboxgl.Marker()      
+      .setLngLat([ data.coords.longitude, data.coords.latitude ])
+      .addTo(map);  
+};
+
+const getMap = () => {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    const marker = JSON.parse(mapElement.dataset.markers);
+    const map = buildMap(mapElement, marker);
+    navigator.geolocation.getCurrentPosition((data) => {
+      console.log(data);
+      addMarkersToMap(map, marker, data);
+    });    
+  }
+};
+
+getMap();
+
+export { getMap };
+
