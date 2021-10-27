@@ -1,21 +1,31 @@
-<<<<<<< HEAD
-<h1>Skates#show</h1>
-<p>Find me in app/views/skates/show.html.erb</p>
-<%= @skate.descripcion %>
-=======
 <%= render "/shared/navbar2" %>
 
 <div class = "container mt-5 pt-5">
-    <div class = "product-details">
-    </div>
-    <div class = "carousel-container row">
-        <div class = "col-6">
-            <%= render "shared/carouselShow", photos: @skate.photos, id_name: @skate.id%>
-        </div>
-        <div class = "col-6">
+    <div class="map-card card mb-3">
+        <div class="card-img-top d-flex justify-content-center mt-3">
             <%= render "shared/map" %>
+        </div>    
+        <div class="card-body">
+            <h5 class="card-title" id = "ubicacion"><%=@skate.ubicacion%></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>   
+
+    <div class="skater-card card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4 p-2">
+                <%= render "shared/carouselShow", photos: @skate.photos, id_name: @skate.id%>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%=@skate.user.email%></h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
         </div>
     </div>
+    <%= render "shared/reviews", skate: @skate %>
 </div>
 
->>>>>>> 96b5856af546e785ecc57c276244abc06287cf59
