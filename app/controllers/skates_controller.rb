@@ -11,7 +11,6 @@ class SkatesController < ApplicationController
 
   def show
     @booking = Booking.new
-    authorize @booking
   end
 
   def new
