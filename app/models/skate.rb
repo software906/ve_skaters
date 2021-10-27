@@ -1,6 +1,7 @@
 class Skate < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
+  has_many :reviews
   validates :precio_dia, :ubicacion, :photos, :descripcion, presence: true
 
   scope :filter_by_price_desc, -> { order(precio_dia: :desc) }
