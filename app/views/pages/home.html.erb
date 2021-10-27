@@ -1,21 +1,25 @@
 <%= render "shared/navbar" %>
 <%= render "shared/banner" %>
+
 <div class="contenedor">
   <h2 class="mt-5">Explora cerca de ti</h2>
 
 <div class="row mb-5">
-  <div class="mb-3 col col-3 col-xs-6">
+  <div class="mb-3 col-12 col-sm-3">
+    <%= link_to skates_path(zona: "Chacao") do %>
     <div class="row">
       <div class="col-4">
-        <img src="https://i.ytimg.com/vi/aep905Sxz7w/hqdefault.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+        <img src="https://th.bing.com/th/id/R.d0c72e0aedd5cf182aec9c529edb3e03?rik=tU721p1B6gVf8A&riu=http%3a%2f%2fmmedia.eluniversal.com%2f18086%2fmunicipiochacao-28362.jpg&ehk=HRR7GYJtmx%2fKu678N8eqcJhp5kxEkMO3%2fATs3wVn15U%3d&risl=&pid=ImgRaw&r=0" alt="" style="width:90px; height: 80px; border-radius: 10px;">
       </div>
       <div class="col-8">
-        <h5>Caracas</h5>
+        <h5>Chacao</h5>
         <p>15 minutos</p>
       </div>
     </div>
+    <% end %>
   </div>
-  <div class="mb-3 col col-3" style="max-width: 540px;">
+  <div class="mb-3 col-12 col-sm-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "Zoologico") do %>
     <div class="row">
       <div class="col-4">
         <img src="https://th.bing.com/th/id/OIP.aOm4n4KrIY6D2qeOBafyCQHaEa?pid=ImgDet&rs=1" alt="" style="width:90px; height: 80px; border-radius: 10px;">
@@ -25,30 +29,23 @@
         <p>15 minutos</p>
       </div>
     </div>
+     <% end %>
   </div>
-    <div class="mb-3 col-3" style="max-width: 540px;">
-    <div class="row">
-      <div class="col-4">
-        <img src="https://th.bing.com/th/id/OIP.9MUuMW1qXAlMbgwfUO9iPwHaJ4?pid=ImgDet&rs=1" alt="" style="width:90px; height: 80px; border-radius: 10px;">
-      </div>
-      <div class="col-8">
-        <h5>Los Proceres</h5>
-        <p>40 minutos</p>
-      </div>
-    </div>
+    <div class="mb-3 col-12 col-sm-3" style="max-width: 540px;">
+      <%= link_to skates_path(zona: "Los proceres") do %>
+        <div class="row">
+          <div class="col-4">
+            <img src="https://th.bing.com/th/id/OIP.9MUuMW1qXAlMbgwfUO9iPwHaJ4?pid=ImgDet&rs=1" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+          </div>
+          <div class="col-8">
+            <h5>Los Proceres</h5>
+            <p>40 minutos</p>
+          </div>
+        </div>
+      <% end %>
   </div>
-  <div class="mb-3 col-3" style="max-width: 540px;">
-    <div class="row">
-      <div class="col-4">
-        <img src="https://i.pinimg.com/originals/4e/bd/3b/4ebd3b440ed8ae63551ac1f86117056e.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
-      </div>
-      <div class="col-8">
-        <h5>Cota 1000</h5>
-        <p>35 minutos</p>
-      </div>
-    </div>
-  </div>
-  <div class="mb-3 col-3" style="max-width: 540px;">
+  <div class="mb-3 col-12 col-sm-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "Cota 1000") do %>
     <div class="row">
       <div class="col-4">
         <img src="https://i.pinimg.com/originals/4e/bd/3b/4ebd3b440ed8ae63551ac1f86117056e.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
@@ -58,39 +55,59 @@
         <p>35 minutos</p>
       </div>
     </div>
+    <% end %>
   </div>
-  <div class="mb-3 col-3" style="max-width: 540px;">
+    <div class="mb-3 col-12 col-sm-3">
+      <%= link_to skates_path(zona: "La urbina") do %>
+      <div class="row">
+        <div class="col-4">
+          <img src="https://th.bing.com/th/id/R.8cd06eefc9afeead7b6f64843c4d0b48?rik=C09kGbggHdEhLA&pid=ImgRaw&r=0" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+        </div>
+        <div class="col-8">
+          <h5>La urbina</h5>
+          <p>8 minutos</p>
+        </div>
+      </div>
+      <% end %>
+  </div>
+  <div class="mb-3 col-12 col-sm-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "El marques") do %>
     <div class="row">
       <div class="col-4">
-        <img src="https://i.pinimg.com/originals/4e/bd/3b/4ebd3b440ed8ae63551ac1f86117056e.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+        <img src="https://img10.naventcdn.com/avisos/13/00/51/96/31/75/1200x1200/54639212.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
       </div>
       <div class="col-8">
-        <h5>Cota 1000</h5>
-        <p>35 minutos</p>
+        <h5>El marques</h5>
+        <p>105 minutos</p>
       </div>
     </div>
+     <% end %>
   </div>
-  <div class="mb-3 col-3" style="max-width: 540px;">
+    <div class="mb-3 col-12 col-sm-3" style="max-width: 540px;">
+      <%= link_to skates_path(zona: "La trinidad") do %>
+        <div class="row">
+          <div class="col-4">
+            <img src="https://i.pinimg.com/originals/c1/da/60/c1da60e4c912634c133087fb09897f15.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+          </div>
+          <div class="col-8">
+            <h5>La trinidad</h5>
+            <p>73 minutos</p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="mb-3 col-12 col-sm-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "El paraiso") do %>
     <div class="row">
       <div class="col-4">
-        <img src="https://i.pinimg.com/originals/4e/bd/3b/4ebd3b440ed8ae63551ac1f86117056e.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+        <img src="https://th.bing.com/th/id/R.90a8bf8e2e5555dc9d259950f3c1098f?rik=j4DVE3srf0NUcg&riu=http%3a%2f%2fguiaccs.com%2fwp-content%2fuploads%2f2017%2f09%2f106_Tarjetas-Z3.jpg&ehk=HRcfHjA5D5I7P1px3FnTnVqsobZRkoAuvAanoKsHOto%3d&risl=&pid=ImgRaw&r=0" alt="" style="width:90px; height: 80px; border-radius: 10px;">
       </div>
       <div class="col-8">
-        <h5>Cota 1000</h5>
-        <p>35 minutos</p>
+        <h5>El paraiso</h5>
+        <p>45 segundos</p>
       </div>
     </div>
-  </div>
-  <div class="mb-3 col-3" style="max-width: 540px;">
-    <div class="row">
-      <div class="col-4">
-        <img src="https://i.pinimg.com/originals/4e/bd/3b/4ebd3b440ed8ae63551ac1f86117056e.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
-      </div>
-      <div class="col-8">
-        <h5>Cota 1000</h5>
-        <p>35 minutos</p>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 

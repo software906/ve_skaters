@@ -1,13 +1,14 @@
 <%= render "/shared/navbar2" %>
 
-<div class="d-flex justify-content-between align-items-center mt-1">
+
+<div class="d-flex justify-content-between align-items-center mt-5 container">
+
   <% if user_signed_in? %>
-  <div class="btn-group">
-    <button type="button" class="btn btn-sm btn-outline-secondary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-      <%= link_to "+ Crear nueva skate", new_skate_path %></font></font>
-    </button>
-  </div>
+    <%= link_to new_skate_path, class: "btn btn-lg", style: "border-radius: 15px; color: white; background: #ffc107;" do %>
+      <i class="far fa-plus-square"></i> Agregar
+    <% end %>
   <% end  %>
+
 </div>
 
 <div class = "cards-container m-3 ml-5 mr-5 p-5">
@@ -16,13 +17,11 @@
         <%= render "shared/dropdown"%>
     </div>
     <div class = "cards d-flex flex-wrap justify-content-between">
-        <% @skates.each do |skate| %> 
-          <%= link_to skate_path(skate), class:'text-decoration-none' do %>       
+        <% @skates.each do |skate| %>
+          <%= link_to skate_path(skate), class:'text-decoration-none' do %>
             <%= render "shared/card", skate: skate%>
-          <% end %>   
-        <% end %>             
-    </div>    
+          <% end %>
+        <% end %>
+    </div>
 </div>
-<div>
-    <%=@loc%>
-</div>
+

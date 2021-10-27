@@ -2,6 +2,7 @@
 import mapboxgl from 'mapbox-gl';
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
+
 const buildMap = (mapElement, marker) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
@@ -39,3 +40,4 @@ const getMap = () => {
 getMap();
 
 export { getMap };
+
