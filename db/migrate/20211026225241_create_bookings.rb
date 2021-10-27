@@ -4,7 +4,7 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.references :skate, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.integer :price_total
-      t.timestamp :time_from
+      t.date :time_from
       t.timestamp :time_to
       t.boolean :status
       t.text :descripcion

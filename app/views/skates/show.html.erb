@@ -1,27 +1,31 @@
 <%= render "/shared/navbar2" %>
 
 <div class = "container mt-5 pt-5">
-<<<<<<< HEAD
-    <div class = "product-details">
-    </div>
-    <div class = "carousel-container row">
-        <div class = "col-6">
-            <%= render "shared/carouselShow", photos: @skate.photos, id_name: @skate.id%>
-        </div>
-        <div class = "col-6">
-            <%= render "shared/map" %>
-=======
-    <div class="map-card card mb-3">
+  <div class="row">
+    <div class="map-card card mb-3 col-6">
         <div class="card-img-top d-flex justify-content-center mt-3">
             <%= render "shared/map" %>
-        </div>    
+        </div>
         <div class="card-body">
             <h5 class="card-title" id = "ubicacion"><%=@skate.ubicacion%></h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-    </div>   
-
+    </div>
+    <div class="map-card card mb-3 col-6">
+      <div class="card-body">
+      <% if @reservado %>
+        <h1>ya reservado</h1>
+      <% else  %>
+        <%= simple_form_for [@skate, @booking] do |f| %>
+        <%= f.input :time_from, label: "fecha de reserva" %>
+        <%= f.input :descripcion, label: "nota:" %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
     <div class="skater-card card mb-3">
         <div class="row no-gutters">
             <div class="col-md-4 p-2">
@@ -34,12 +38,7 @@
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
->>>>>>> 5b5f2e2e3004adb1ef408a454bb4170081bcab47
         </div>
     </div>
-    <%= render "shared/reviews", skate: @skate %>
+     <%= render "shared/reviews", skate: @skate, reservado: @review_act %>
 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5b5f2e2e3004adb1ef408a454bb4170081bcab47
