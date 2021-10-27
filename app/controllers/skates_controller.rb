@@ -22,6 +22,7 @@ class SkatesController < ApplicationController
 
       @review_act = true
     end
+
   end
 
   def new

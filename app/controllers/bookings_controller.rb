@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     else
       redirect_to skates_path
     end
+
   end
 
   def destroy
@@ -29,4 +30,5 @@ class BookingsController < ApplicationController
   def set_skate
     @skate = Skate.find(params[:skate_id])
   end
+
 end
