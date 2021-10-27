@@ -7,11 +7,18 @@ class SkatesController < ApplicationController
     @skates = Skate.filter_by_price_desc if (params[:filter] == "price-desc")
     @skates = Skate.filter_by_price_asc if (params[:filter] == "price-asc")
     @skates = Skate.location if (params[:filter] == "ubicacion")
+    
   end
 
   def show
     @booking = Booking.new
     @review = Review.new(skate: @skate)
+    @markers = {
+                lat: @skate.latitude,
+                lng: @skate.longitude,
+                info_window: render_to_string(partial: "info_window", locals: { skate: @skate })
+              } 
+
     @reservado = false
     @review_act = false
     @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
@@ -22,7 +29,6 @@ class SkatesController < ApplicationController
 
       @review_act = true
     end
-
   end
 
   def new
