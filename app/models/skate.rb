@@ -1,4 +1,6 @@
 class Skate < ApplicationRecord
+  attr_accessor :user_skate_pos
+  
   include PgSearch::Model
   belongs_to :user
   has_many :booking
@@ -15,10 +17,12 @@ class Skate < ApplicationRecord
   scope :search, -> { where("ubicacion LIKE ?", "%#{params[:search]}%") }
   #scope :filter_by_search, -> (ubicacion) { where("ubicacion like ?", "%#{ubicacion}%")}
   scope :filter_by_zona, -> (zona) { where("ubicacion like ?", "%#{zona}%")}
+
   scope :filter_by_categoria, -> (categoria) { where("categoria like ?", "%#{categoria}%")}
   pg_search_scope :search_by_ubicacion_and_descripcion,
     against: [ :ubicacion, :descripcion ],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
 end

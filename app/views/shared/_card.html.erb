@@ -21,13 +21,23 @@
                 <% rating = skate.reviews.reduce(0) do |sum, review|%>
                     <% sum + review.rating%>   
                 <%end%>
-                <h6 class = "mr-1">Reputacion:</h6>
-                <h6 ><%=skate.reviews.size.zero? ? 0 : rating.fdiv(skate.reviews.size)%> </h6>                          
+                <h6 class = "mr-1">Rating:</h6>
+                <%if (skate.reviews.size.zero?) %>
+                    <% 5.times do |x|%> 
+                        <i class="far fa-star"></i>
+                    <%end%>
+                <%else%>
+                    <%(rating.div(skate.reviews.size)).times do |x|%>
+                        <i class="fas fa-star"></i>
+                    <%end%>
+                    <%(5 - rating.div(skate.reviews.size)).times do |x|%>
+                        <i class="far fa-star"></i>
+                    <%end%>
+                <%end%>
+                                            
             </div>
         </div>
-        <h6 class="card-subtitle text-muted mt-1" id="card-distancia"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-            Distancia : </h6>
+        <h6 class="card-subtitle text-muted mt-1" id="card-distancia">
+            Distancia: <%=skate.user_skate_pos%>Km </h6>
     </div>
 </div>
