@@ -26,7 +26,7 @@ class SkatePolicy < ApplicationPolicy
     return true
   end
 
-  def destroy
-
+  def destroy?
+    return true
   end
 end
