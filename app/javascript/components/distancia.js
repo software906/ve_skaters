@@ -7,7 +7,7 @@ const buildMap = (mapElement, marker) => {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [ marker.lng, marker.lat ], // starting position [lng, lat]
-    zoom: 9 // starting zoom
+    zoom: 10 // starting zoom
   });
 };
 
@@ -32,12 +32,13 @@ const addMarkersToMap = (map, marker, data) => {
     console.log(distance);
   // Mostrar en el html
     const value = document.getElementById('map-overlay')
+    const value = document.getElementById('card-distancia')
     value.innerHTML = `Distancia: ${distance.toFixed([2])} km`
 };
 
 const getMap = () => {
-  const mapElement = document.getElementById('map');
-  if (mapElement) {
+  const cardElement = document.getElementById('card-distancia');
+  if (cardElement) {
     const marker = JSON.parse(mapElement.dataset.markers);
     const map = buildMap(mapElement, marker);
     navigator.geolocation.getCurrentPosition((data) => {      
@@ -47,5 +48,6 @@ const getMap = () => {
 };
 
 getMap();
+
 export { getMap };
 
