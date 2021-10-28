@@ -9,6 +9,13 @@ class SkatesController < ApplicationController
     @skates = Skate.location if (params[:filter] == "ubicacion")
     @skates = @skates.filter_by_search(params[:search]) if params[:search]
     @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]
+    @markers = @skate.each do |skate|
+      { 
+        lat: skate.latitude,
+        lng: skate.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { skate: skate })
+      } 
+    end
 
   end
 

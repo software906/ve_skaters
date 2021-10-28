@@ -27,7 +27,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
-//import { getMap } from '../components/map'
+import { getMap } from '../components/map'
 import { initUpdateGoTop } from '../components/gotop';
 
 // Internal imports, e.g:
@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
   //initUpdateGoTop();
-  //getMap();
+  getMap();
 });
 
 console.log("Hello from app/javascript/packs/application.js!");

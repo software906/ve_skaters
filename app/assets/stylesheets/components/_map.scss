@@ -17,3 +17,18 @@
     text-align: center;
     font-family: 'Open Sans', sans-serif;
   }
+ 
+  #map-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 10px 0 0 10px;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+    width: 200px;
+    height: 50px;
+    border-radius: 3px;
+  }
