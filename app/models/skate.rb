@@ -14,4 +14,6 @@ class Skate < ApplicationRecord
   scope :search, -> { where("ubicacion LIKE ?", "%#{params[:search]}%") }
   scope :filter_by_search, -> (ubicacion) { where("ubicacion like ?", "%#{ubicacion}%")}
   scope :filter_by_zona, -> (zona) { where("ubicacion like ?", "%#{zona}%")}
+
+  attr_accessor :user_skate_pos
 end

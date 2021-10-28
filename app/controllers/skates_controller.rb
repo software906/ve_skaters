@@ -1,3 +1,5 @@
+require 'user_ip'
+
 class SkatesController < ApplicationController
   before_action :set_skate, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
@@ -9,24 +11,28 @@ class SkatesController < ApplicationController
     @skates = Skate.location if (params[:filter] == "ubicacion")
     @skates = @skates.filter_by_search(params[:search]) if params[:search]
     @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]
-    @markers = @skate.each do |skate|
-      { 
-        lat: skate.latitude,
-        lng: skate.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { skate: skate })
-      } 
+    @yo = UserIp.new(@skates[1]).user_pos
+    @tu = UserIp.new(@skates[1]).skate_pos
+    @skates.each do |skate|
+        usuario = UserIp.new(skate)
+        skate.user_skate_pos = usuario.distancia
     end
-
+    
   end
 
   def show
     @booking = Booking.new
+    usuario = UserIp.new(@skate)    
     @review = Review.new(skate: @skate)
-    @markers = {
+    @marker_skate = {
                 lat: @skate.latitude,
                 lng: @skate.longitude,
                 info_window: render_to_string(partial: "info_window", locals: { skate: @skate })
-              } 
+              }
+    @marker_user = {
+                lat: usuario.user_pos[0],
+                lng: usuario.user_pos[1],                
+              }   
 
     @reservado = false
     @review_act = false
