@@ -29,7 +29,7 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
 import { getMap } from '../components/map'
 import { initUpdateGoTop } from '../components/gotop';
-
+import { initSweetalert } from '../plugins/init_sweetalert';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -38,8 +38,13 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
-  //initUpdateGoTop();
+  initUpdateGoTop();
   getMap();
+  initSweetalert('#sweet-alert-demo', {
+    title: "Bienvenido",
+    text: "This is a great alert, isn't it?",
+    icon: "success"
+  });
 });
 
 console.log("Hello from app/javascript/packs/application.js!");

@@ -7,15 +7,10 @@ class SkatesController < ApplicationController
     @skates = Skate.filter_by_price_desc if (params[:filter] == "price-desc")
     @skates = Skate.filter_by_price_asc if (params[:filter] == "price-asc")
     @skates = Skate.location if (params[:filter] == "ubicacion")
-    @skates = @skates.filter_by_search(params[:search]) if params[:search]
+    #@skates = @skates.filter_by_search(params[:search]) if params[:search]
     @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]
-    @markers = @skate.each do |skate|
-      { 
-        lat: skate.latitude,
-        lng: skate.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { skate: skate })
-      } 
-    end
+    @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
+    @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
 
   end
 
@@ -26,7 +21,7 @@ class SkatesController < ApplicationController
                 lat: @skate.latitude,
                 lng: @skate.longitude,
                 info_window: render_to_string(partial: "info_window", locals: { skate: @skate })
-              } 
+              }
 
     @reservado = false
     @review_act = false
@@ -73,6 +68,6 @@ class SkatesController < ApplicationController
   end
 
   def skate_params
-    params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion, photos: [])
+    params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion, :categoria, photos: [])
   end
 end
