@@ -28,6 +28,7 @@ class SkatesController < ApplicationController
     @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
     if @reserva.present?
       @reservado = true
+      @booking = Booking.find_by(skate_id: @skate, user_id: current_user)
     end
     if Booking.find_by(skate_id: @skate, user_id: current_user, status: false)
 
