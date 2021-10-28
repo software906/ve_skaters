@@ -1,24 +1,21 @@
 const initUpdateGoTop = () => {
+  const goTopBtn = document.querySelector('.go-top-btn');
 
-  var mybutton = document.getElementById("myBtn");
+  window.addEventListener('scroll', checkHeight)
 
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function () { scrollFunction() };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      mybutton.style.display = "block";
+  function checkHeight() {
+    if (window.scrollY > 200) {
+      goTopBtn.style.display = "flex"
     } else {
-      mybutton.style.display = "none";
+      goTopBtn.style.display = "none"
     }
   }
-  window.onscroll = function () { topFunction() };
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
 
+  goTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  })
 }
-
 export { initUpdateGoTop };
