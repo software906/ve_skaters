@@ -9,8 +9,9 @@ class SkatesController < ApplicationController
     @skates = Skate.filter_by_price_desc if (params[:filter] == "price-desc")
     @skates = Skate.filter_by_price_asc if (params[:filter] == "price-asc")
     @skates = Skate.location if (params[:filter] == "ubicacion")
-    @skates = @skates.filter_by_search(params[:search]) if params[:search]
+    #@skates = @skates.filter_by_search(params[:search]) if params[:search]
     @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]
+
     @yo = UserIp.new(@skates[1]).user_pos
     @tu = UserIp.new(@skates[1]).skate_pos
     @skates.each do |skate|
@@ -18,6 +19,9 @@ class SkatesController < ApplicationController
         skate.user_skate_pos = usuario.distancia
     end
     
+    @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
+    @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
+
   end
 
   def show
@@ -29,16 +33,19 @@ class SkatesController < ApplicationController
                 lng: @skate.longitude,
                 info_window: render_to_string(partial: "info_window", locals: { skate: @skate })
               }
+
     @marker_user = {
                 lat: usuario.user_pos[0],
                 lng: usuario.user_pos[1],                
               }   
+
 
     @reservado = false
     @review_act = false
     @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
     if @reserva.present?
       @reservado = true
+      @booking = Booking.find_by(skate_id: @skate, user_id: current_user)
     end
     if Booking.find_by(skate_id: @skate, user_id: current_user, status: false)
 
@@ -79,6 +86,6 @@ class SkatesController < ApplicationController
   end
 
   def skate_params
-    params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion, photos: [])
+    params.require(:skate).permit(:precio_dia, :ubicacion, :descripcion, :categoria, photos: [])
   end
 end

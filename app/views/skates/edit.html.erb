@@ -18,6 +18,9 @@
             <%= f.input :ubicacion, label: "ubicacion", as: :select, collection: ['La urbina', 'Chacao', 'El marques', 'La trinidad', 'El paraiso', 'Fuerte tiuna', 'Zoologico', 'La madariaga']%>
           </div>
           <div class="field">
+            <%= f.input :categoria, label: "categoria", as: :select, collection: ['Patineta', 'Bicicleta', 'Patines', 'Monopatin']%>
+          </div>
+          <div class="field">
             <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           </div>
           <div class="field btn">

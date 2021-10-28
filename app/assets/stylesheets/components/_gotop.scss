@@ -1,0 +1,23 @@
+.go-top-btn {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  border-radius: 15%;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  background: #ff5722;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: 0.7s;
+}
+
+.go-top-btn:hover{
+  background: #ffc107;
+}
+
+.go-top-btn img {
+  width: 20px;
+  height: 20px;
+}
