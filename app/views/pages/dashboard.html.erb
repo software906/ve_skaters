@@ -2,31 +2,33 @@
 <div class = container>
     <div class = "d-flex">
         <div class = "profile">
-            <div class="card mt-4" style="width: 18rem;">
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "img-top rounded-circle border p-5", alt: "avatar-large" %>
+            <div class="card mt-4">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "img-top rounded-circle align-self-center", alt: "avatar-large", width: "100px" %>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Edit Profile</a>
+                    <h5 class="card-title"><%=current_user.email.match(/\w+/)[0]%></h5>
+                    <p class="card-text"></p>
+                    <%= link_to "Editar profile", class: "btn btn-primary"%>
                 </div>
             </div>
         </div>
     <div>
 </div>
 </div>
-<h1>Mis Skate</h1>
-<% @my_skates.each do |skate| %>
- <%=  skate.descripcion  %>
- <%= link_to "Ver" %>
- <%= link_to "Editar" %>
- <%= link_to "Eliminar" %>
-<% end %>
-<h1>Mis Reservas</h1>
-<% @my_bookings.each do |booking| %>
- <%=  booking.status  %>
- <%= link_to "Ver" %>
- <%= link_to "cancelar" %>
-<% end %>
+
+<h1>Mis Skate</h1>   
+    <div class = "cards row d-flex justify-content-around mt-4 pt-3">
+        <%@my_skates.each do |skate| %>         
+            <div class="mb-3 col-12 col-sm-6 col-lg-3">             
+                <%= render "shared/card-dash", skate: skate%>                 
+            </div>          
+        <% end %>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+</div>
+
+
 <h1>Mis rantas</h1>
 <table>
   <th>usuario</th><th>Fecha</th><th>status</th><th>completada</th>
@@ -38,3 +40,4 @@
 <% end %>
 </table>
 </div>
+

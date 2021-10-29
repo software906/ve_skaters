@@ -79,6 +79,8 @@ class SkatesController < ApplicationController
   end
 
   def destroy
+    @skate.destroy
+    redirect_to dashboard_path
   end
 
   private

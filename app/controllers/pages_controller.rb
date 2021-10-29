@@ -11,5 +11,6 @@ class PagesController < ApplicationController
     @rents = @a.select do |book|
       book.skate.user_id == current_user.id
     end
+    @pagy, @my_skates = pagy(@my_skates, items: 3)
   end
 end
