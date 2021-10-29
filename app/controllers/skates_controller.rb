@@ -9,20 +9,20 @@ class SkatesController < ApplicationController
     @skates = Skate.filter_by_price_desc if (params[:filter] == "price-desc")
     @skates = Skate.filter_by_price_asc if (params[:filter] == "price-asc")
     @skates = Skate.location if (params[:filter] == "ubicacion")
-    @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]     
+    @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]
 
     @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
-    @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?    
-   
+    @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
+
     @pagy, @skates = pagy(@skates, items: 8)
     @skates.each do |skate|
       if skate.present?
         usuario = UserIp.new(skate)
         skate.user_skate_pos = usuario.distancia
       end
-    end 
+    end
     @skates = @skates.sort_by { |skate| skate.user_skate_pos } if (params[:filter] == "cercania")
-    
+
 
   end
 
@@ -45,10 +45,10 @@ class SkatesController < ApplicationController
     @reservado = false
     @review_act = false
     @reserva = nil
-    @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
+    @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true, compled: false)
     if @reserva.present?
       @reservado = true
-      @booking = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
+      @booking = Booking.find_by(skate_id: @skate, user_id: current_user, status: true, compled: false)
       @c_u = current_user.id
     end
     if Booking.find_by(skate_id: @skate, user_id: current_user, status: false, compled: true)
