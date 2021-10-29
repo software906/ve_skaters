@@ -1,0 +1,26 @@
+<div class="map-card card mb-3 col-6">
+      <div class="card-body">
+      <% if reservado %>
+        <h5 class="card-title">Tu reserva</h5>
+        <p class="card-text">Detalles:
+        <ul>
+          <li>Rendador= <%= booking.skate.user.email %></li>
+          <li>Fecha = <%= booking.time_from %></li>
+          <li>Ubicación= <%= booking.skate.ubicacion %></li>
+          <li>Precio= <%= booking.skate.precio_dia %> $</li>
+        </ul>
+        </p>
+        <hr>
+        <%= link_to "Cancelar", skate_booking_path(skate,booking), class: "btn btn-primary", method: :delete, data: {confirm: "estas seguro"} %>
+
+
+      <% else  %>
+        <%= simple_form_for [skate, booking] do |f| %>
+          <%= f.input :time_from, label: "fecha de reserva"%>
+          <%= f.input :descripcion, label: "nota:" %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>

@@ -42,7 +42,8 @@ ActiveRecord::Schema.define(version: 2021_10_28_170112) do
     t.integer "price_total"
     t.date "time_from"
     t.datetime "time_to"
-    t.boolean "status"
+    t.boolean "status", default: true
+    t.boolean "compled", default: false
     t.text "descripcion"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

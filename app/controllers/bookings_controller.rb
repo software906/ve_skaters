@@ -7,30 +7,28 @@ class BookingsController < ApplicationController
 
   def create
     authorize @skate
-    #if Booking.find_by(skate_id: @skate, time_from: params[:time_from])
-      @booking = Booking.new(booking_params)
-      @booking.skate = @skate
-      @booking.price_total = @skate.precio_dia
-      @booking.user = current_user
-      @booking.status = true
-      if @booking.save
-        redirect_to skate_path(@skate)
-      else
-        render 'skates/show'
-      end
-    #else
-    #  redirect_to skate_path(@skate)
-    #end
+    @booking = Booking.new(booking_params)
+    @booking.skate = @skate
+    @booking.price_total = @skate.precio_dia
+    @booking.user = current_user
+    # @booking.status = true
+    # @booking.compled = false
+    if @booking.save
+      redirect_to skate_path(@skate)
+    else
+      render 'skates/show'
+    end
   end
 
   def update
-
   end
 
   def status
     @booking = Booking.find(params[:id])
-    @booking.update(status: false)
-    redirect_to skates_path
+    @booking.status = false
+    @booking.save
+    puts params
+    redirect_to skate_path(params[:skate_id])
   end
 
   def destroy
