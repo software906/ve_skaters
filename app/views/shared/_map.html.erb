@@ -1,0 +1,7 @@
+<div class = "mapa" id='map'
+    data-marker-skate="<%= @marker_skate.to_json %>"
+    data-marker-user="<%= @marker_user.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">    
+</div>
+
+<div id='map-overlay'>Distance: </div>

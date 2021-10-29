@@ -1,0 +1,20 @@
+<%= render "shared/navbar2" %>
+<div class="wrapper mx-auto mt-5 mb-5">
+  <div class="form-container">
+    <h2 class="text-center">Forgot your password?</h2>
+       <div class="form-inner">
+          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+             <div class="field">
+                <%= f.input :email,
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" } %>
+             </div>
+             <div class="field btn">
+               <div class="btn-layer"></div>
+               <%= f.button :submit, "Send me reset password instructions" %>
+             </div>
+          <% end %>
+       </div>
+    </div>
+</div>

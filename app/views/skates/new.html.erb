@@ -1,0 +1,33 @@
+<%= render "shared/navbar2" %>
+<div class="wrapper mt-5 mb-5 mx-auto">
+  <div class="title-text">
+      <div class="title signup">
+         Agrega nueva Skate
+      </div>
+   </div>
+   <div class="form-container">
+      <div class="form-inner">
+         <%= simple_form_for @skate do |f| %>
+          <div class="field">
+             <%= f.input :precio_dia, label: "precio por dia"%>
+          </div>
+          <div class="field mt-5">
+            <%= f.input :descripcion, label: "Descripcion"%>
+          </div>
+          <div class="field mt-5">
+            <%= f.input :ubicacion, label: "ubicacion", as: :select, collection: ['La urbina, caracas, VE', 'Chacao, caracas, VE', 'El marques, caracas, VE', 'La trinidad, caracas, VE', 'El paraiso, caracas, VE', 'Cota mil, caracas, VE', 'Zoologico, caracas, VE', 'Los proceres, caracas, VE']%>
+          </div>
+           <div class="field mt-5">
+            <%= f.input :categoria, label: "categoria", as: :select, collection: ['Patineta', 'Bicicleta', 'Patines', 'Monopatin']%>
+          </div>
+          <div class="field mt-5">
+            <%= f.input :photos, as: :file, input_html: { multiple: true }, class: "btn btn-primary" %>
+          </div>
+          <div class="field btn mt-5">
+            <div class="btn-layer"></div>
+            <%= f.button :submit, "Crear Skate" %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

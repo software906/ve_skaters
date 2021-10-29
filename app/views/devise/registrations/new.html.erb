@@ -1,0 +1,37 @@
+<%= render "shared/navbar2" %>
+<div class="wrapper mt-5 mb-5 mx-auto">
+  <div class="title-text">
+      <div class="title signup">
+         Sign up
+      </div>
+   </div>
+   <div class="form-container">
+      <div class="form-inner">
+         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <div class="field">
+                  <%= f.input :email,
+                              required: true,
+                              autofocus: true,
+                              placeholder: "Email Address",
+                              input_html: { autocomplete: "email" } %>
+          </div>
+          <div class="field">
+                  <%= f.input :password,
+                              required: true,
+                              placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                              input_html: { autocomplete: "new-password" } %>
+          </div>
+          <div class="field">
+                  <%= f.input :password_confirmation,
+                              required: true,
+                              input_html: { autocomplete: "new-password" } %>
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <%= f.button :submit, "Sign up" %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

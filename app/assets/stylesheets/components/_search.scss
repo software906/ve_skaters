@@ -1,0 +1,162 @@
+.box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  transform: translate(-50%, -50%);
+  margin-top: 35px;
+
+  input{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+    transition: .5s;
+  }
+
+  input[type="text"]{
+    background: #fff;
+    width: 250px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 25px 0 0 25px;
+  }
+
+  input[type="submit"]{
+    position: relative;
+    border-radius: 0 25px 25px 0;
+    width: 150px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+    background: #ffc107;
+    color: #fff;
+  }
+
+  input[type="submit"]:hover{
+    background: #ff5722;
+  }
+}
+
+.box-nav{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+
+
+  h1{
+  margin: 0 0 10px;
+  padding: 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+  input{
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: .5s;
+  }
+
+  input[type="text"]{
+    background: #fff;
+    width: 250px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 25px 0 0 25px;
+  }
+
+  input[type="submit"]{
+    position: relative;
+    border-radius: 0 25px 25px 0;
+    width: 100px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    background: #ffc107;
+    color: #fff;
+  }
+
+  input[type="submit"]:hover{
+    background: #ff5722;
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .nav-title{
+    font-size: 12px;
+  }
+  .box-nav {
+    margin-left: 20px;
+    width: 200px;
+    input[type="text"]{
+      width: 100px;
+    }
+
+    input[type="submit"]{
+      width: 60px;
+    }
+  }
+
+  .box{
+    margin-top: 50px;
+    width: 300px;
+    input[type="text"]{
+      width: 100px;
+    }
+
+    input[type="submit"]{
+      width: 80px;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .box-nav {
+    margin-left: 20px;
+    width: 250px;
+    input[type="text"]{
+      width: 150px;
+    }
+
+    input[type="submit"]{
+      width: 90px;
+    }
+  }
+
+  .box{
+    margin-top: 55px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .box-nav {
+    margin-left: 20px;
+    width: 350px;
+    input[type="text"]{
+      width: 180px;
+    }
+
+    input[type="submit"]{
+      width: 120px;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

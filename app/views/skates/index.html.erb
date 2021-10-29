@@ -1,0 +1,23 @@
+<%= render "/shared/navbar2" %>
+
+<div class="d-flex justify-content-between align-items-center mt-5 mb-5 container">
+  <div class = "filter">
+        <h5 class = "mr-2"> Ordenar por: </h5>
+        <%= render "shared/dropdown"%>
+    </div>
+ 
+    <div class = "cards row d-flex justify-content-around mt-4 pt-3">
+        <% @skates.each do |skate| %>
+          <% if !policy(skate).edit?  %>
+            <div class="mb-3 col-12 col-sm-6 col-lg-3">
+              <%= link_to skate_path(skate), class:'text-decoration-none' do %>
+                <%= render "shared/card", skate: skate%>
+            <% end %>          
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+
+<div class="d-flex justify-content-center mt-3">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>

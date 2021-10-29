@@ -1,0 +1,34 @@
+.map-card {
+    border-radius: 40px;
+    .mapa {
+        border-radius: 20px;
+        width: 150vh;
+        height: 300px;
+        border: 1px solid green;
+        align-items: center;
+    }
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+  }
+  
+  .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+ 
+  #map-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 10px 0 0 10px;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+    width: 200px;
+    height: 50px;
+    border-radius: 3px;
+  }

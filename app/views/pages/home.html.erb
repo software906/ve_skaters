@@ -1,2 +1,147 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render "shared/navbar" %>
+<%= render "shared/banner" %>
+<%= render "shared/gotop" %>
+<div class="contenedor">
+  <h2 class="mt-5">Explora cerca de ti</h2>
+
+<div class="row mb-5">
+  <div class="mb-3 col-12 col-sm-6 col-lg-3">
+    <%= link_to skates_path(zona: "Chacao") do %>
+    <div class="row">
+      <div class="col-4">
+        <img src="https://th.bing.com/th/id/R.d0c72e0aedd5cf182aec9c529edb3e03?rik=tU721p1B6gVf8A&riu=http%3a%2f%2fmmedia.eluniversal.com%2f18086%2fmunicipiochacao-28362.jpg&ehk=HRR7GYJtmx%2fKu678N8eqcJhp5kxEkMO3%2fATs3wVn15U%3d&risl=&pid=ImgRaw&r=0" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+      </div>
+      <div class="col-8">
+        <h5>Chacao</h5>
+        <p>15 minutos</p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="mb-3 col-12 col-sm-6 col-lg-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "Zoologico") do %>
+    <div class="row justify-content-between">
+      <div class="col-4">
+        <img src="https://th.bing.com/th/id/OIP.aOm4n4KrIY6D2qeOBafyCQHaEa?pid=ImgDet&rs=1" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+      </div>
+      <div class="col-8">
+        <h5>SkatePark Zoologico</h5>
+        <p>15 minutos</p>
+      </div>
+    </div>
+     <% end %>
+  </div>
+    <div class="mb-3 col-12 col-sm-6 col-lg-3" style="max-width: 540px;">
+      <%= link_to skates_path(zona: "Los proceres") do %>
+        <div class="row">
+          <div class="col-4">
+            <img src="https://th.bing.com/th/id/OIP.9MUuMW1qXAlMbgwfUO9iPwHaJ4?pid=ImgDet&rs=1" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+          </div>
+          <div class="col-8">
+            <h5>Los Proceres</h5>
+            <p>40 minutos</p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="mb-3 col-12 col-sm-6 col-lg-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "Cota 1000") do %>
+    <div class="row">
+      <div class="col-4">
+        <img src="https://i.pinimg.com/originals/4e/bd/3b/4ebd3b440ed8ae63551ac1f86117056e.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+      </div>
+      <div class="col-8">
+        <h5>Cota 1000</h5>
+        <p>35 minutos</p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+    <div class="mb-3 col-12 col-sm-6 col-lg-3">
+      <%= link_to skates_path(zona: "La urbina") do %>
+      <div class="row">
+        <div class="col-4">
+          <img src="https://th.bing.com/th/id/R.8cd06eefc9afeead7b6f64843c4d0b48?rik=C09kGbggHdEhLA&pid=ImgRaw&r=0" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+        </div>
+        <div class="col-8">
+          <h5>La urbina</h5>
+          <p>8 minutos</p>
+        </div>
+      </div>
+      <% end %>
+  </div>
+  <div class="mb-3 col-12 col-sm-6 col-lg-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "El marques") do %>
+    <div class="row">
+      <div class="col-4">
+        <img src="https://img10.naventcdn.com/avisos/13/00/51/96/31/75/1200x1200/54639212.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+      </div>
+      <div class="col-8">
+        <h5>El marques</h5>
+        <p>105 minutos</p>
+      </div>
+    </div>
+     <% end %>
+  </div>
+    <div class="mb-3 col-12 col-sm-6 col-lg-3" style="max-width: 540px;">
+      <%= link_to skates_path(zona: "La trinidad") do %>
+        <div class="row">
+          <div class="col-4">
+            <img src="https://i.pinimg.com/originals/c1/da/60/c1da60e4c912634c133087fb09897f15.jpg" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+          </div>
+          <div class="col-8">
+            <h5>La trinidad</h5>
+            <p>73 minutos</p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="mb-3 col-12 col-sm-6 col-lg-3" style="max-width: 540px;">
+    <%= link_to skates_path(zona: "El paraiso") do %>
+    <div class="row">
+      <div class="col-4">
+        <img src="https://th.bing.com/th/id/R.90a8bf8e2e5555dc9d259950f3c1098f?rik=j4DVE3srf0NUcg&riu=http%3a%2f%2fguiaccs.com%2fwp-content%2fuploads%2f2017%2f09%2f106_Tarjetas-Z3.jpg&ehk=HRcfHjA5D5I7P1px3FnTnVqsobZRkoAuvAanoKsHOto%3d&risl=&pid=ImgRaw&r=0" alt="" style="width:90px; height: 80px; border-radius: 10px;">
+      </div>
+      <div class="col-8">
+        <h5>El paraiso</h5>
+        <p>45 segundos</p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<h2 class="mb-5">Nuestros productos.</h2>
+
+<div class="cards-home mb-5">
+  <%= link_to skates_path(categoria: "Patineta") do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://th.bing.com/th/id/OIP.eJQtn36Wyvufv3LiVBY8PwHaE8?pid=ImgDet&w=640&h=427&rs=1)">
+      Patinetas
+    </div>
+  <% end %>
+  <%= link_to skates_path(categoria: "Bicicleta") do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.hibridosyelectricos.com/media/hibridos/images/2020/11/05/2020110515560802634.jpg)">
+      Bicicleta
+    </div>
+  <% end %>
+  <%= link_to skates_path(categoria: "Patines") do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://th.bing.com/th/id/OIP.IsbPmxg9m8k2DApxj2_k-QHaHa?pid=ImgDet&rs=1)">
+      Patines
+    </div>
+  <% end %>
+  <%= link_to skates_path(categoria: "Monopatin") do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://360scooters.com/wp-content/uploads/2020/12/swissgo-PT010_4-600x600-1.jpg)">
+      Monopatin
+    </div>
+  <% end %>
+</div>
+
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://www.lakewanaka.co.nz/assets/Tourism-Operators/images/20150829-pedropimentel-net-Wanaka-Skate-Park-Opening-451.jpg);">
+  <div class="container">
+    <h1>Conoce la historia del skate.</h1>
+    <p>El monopatinaje,s un deporte que consiste en deslizarse sobre un monopatín y a la vez poder realizar diversos trucos, gran parte de ellos elevando la tabla del suelo, haciendo piruetas con ella en el aire.</p>
+    <a class="btn btn-primary" href="https://www.historiadetudo.com/historia-do-skate#:~:text=A%20hist%C3%B3ria%20do%20skate%20surgiu%20a%20partir%20de,n%C3%A3o%20dava%20para%20surfar%20de%20verdade%20%28baixa%20mar%C3%A9%29." target="_blank">Ver link</a>
+  </div>
+</div>
+
+</div>

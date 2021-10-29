@@ -1,0 +1,20 @@
+.dropdown-menu{
+    position: relative;
+    border-radius: 10px;
+  
+  .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 50px;
+  }  
+
+  #sub-menu:hover {
+    background: brown;
+    .dropdown-submenu {
+        background: white;
+        border-radius: 10px;
+        display: block;
+        }
+    }
+}

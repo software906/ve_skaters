@@ -10,10 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_175227) do
+ActiveRecord::Schema.define(version: 2021_10_28_170112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "skate_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "price_total"
+    t.date "time_from"
+    t.datetime "time_to"
+    t.boolean "status", default: true
+    t.boolean "compled", default: false
+    t.text "descripcion"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skate_id"], name: "index_bookings_on_skate_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.integer "rating", default: 0
+    t.bigint "skate_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skate_id"], name: "index_reviews_on_skate_id"
+  end
+
+  create_table "skates", force: :cascade do |t|
+    t.integer "precio_dia"
+    t.text "descripcion"
+    t.text "ubicacion"
+    t.boolean "status", default: true
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "categoria"
+    t.index ["user_id"], name: "index_skates_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +86,9 @@ ActiveRecord::Schema.define(version: 2021_10_25_175227) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "skates"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "skates"
+  add_foreign_key "skates", "users"
 end

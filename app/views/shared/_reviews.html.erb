@@ -1,0 +1,43 @@
+<div class="row">
+		<div class="col-12 col-sm-6">
+		<h3>Reviews</h3>
+		<% if skate.reviews.empty? %>
+			<small><em class="text-muted">Be the first one to review this skate</em></small>
+		<% end %>
+		<% skate.reviews.each do |review| %>
+			<div>
+			<% review.rating.times do %>
+				<i class="fas fa-star star-yellow"></i>
+			<% end %>
+			<small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+			<p class="mb-0"><%= review.comment %></p>
+			</div>
+			<hr>
+		<% end %>
+		</div>
+
+    <% if reservado %>
+		<div class="col-12 col-sm-6">
+
+		  <div class="wrapper" style="max-width: 574px;">
+        <div class="form-container">
+          <h2 class="text-center">Add your review</h2>
+             <div class="form-inner">
+                <%= simple_form_for [skate, @review] do |f| %>
+                   <div class="field">
+                      <%= f.input :comment, placeholder: 'Add your review here...' %>
+                   </div>
+                   <div class="field">
+                      <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { id: 'review_rating' } %>
+                   </div>
+                   <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <%= f.submit class:'btn btn-flat' %>
+                   </div>
+                <% end %>
+             </div>
+          </div>
+      </div>
+	  </div>
+   <% end %>
+</div>
