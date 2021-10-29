@@ -9,19 +9,19 @@ class SkatesController < ApplicationController
     @skates = Skate.filter_by_price_desc if (params[:filter] == "price-desc")
     @skates = Skate.filter_by_price_asc if (params[:filter] == "price-asc")
     @skates = Skate.location if (params[:filter] == "ubicacion")
-    #@skates = @skates.filter_by_search(params[:search]) if params[:search]
     @skates = @skates.filter_by_zona(params[:zona]) if params[:zona]
 
     @skates.each do |skate|
       if skate.present?
-      usuario = UserIp.new(skate)
-      skate.user_skate_pos = usuario.distancia
+        usuario = UserIp.new(skate)
+        skate.user_skate_pos = usuario.distancia
       end
-    end
+  end   
 
     @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
     @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
 
+    @pagy, @skates = pagy(@skates, items: 3)
   end
 
   def show
