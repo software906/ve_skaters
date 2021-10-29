@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     #if Booking.find_by(skate_id: @skate, time_from: params[:time_from])
       @booking = Booking.new(booking_params)
       @booking.skate = @skate
+      @booking.price_total = @skate.precio_dia
       @booking.user = current_user
       @booking.status = true
       if @booking.save
