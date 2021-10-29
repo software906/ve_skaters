@@ -14,34 +14,7 @@
             <p class="card-text"><small class="text-muted">Last updated <%= distance_of_time_in_words_to_now(@skate.created_at) %> ago</small></p>
         </div>
     </div>
-    <div class="map-card card mb-3 col-6">
-      <div class="card-body">
-      <% if @reservado %>
-        <h5 class="card-title">Tu reserva</h5>
-        <p class="card-text">Detalles:
-        <ul>
-        <li>id= <%= @booking.id %></li>
-        <li>Rendador= <%= @booking.skate.user.email %></li>
-        <li>Fecha = <%= @booking.time_from %></li>
-        <li>Precio= <%= @booking.skate.precio_dia %> $</li>
-        <li>Ubicación= <%= @booking.skate.ubicacion %></li>
-        </ul>
-        </p>
-        <p><%= link_to "cancelar reserva", status_path(@booking) %></p>
-        <%= link_to "borrar", skate_booking_path(@skate,@booking), method: :delete, data: {confirm: "estas seguro"} %>
-
-
-      <% else  %>
-        <%= simple_form_for [@skate, @booking] do |f| %>
-          <%= f.input :time_from, label: "fecha de reserva"%>
-          <%= f.input :descripcion, label: "nota:" %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
-      <% end %>
-      </div>
-    </div>
-  </div>
-
+    <%= render "shared/cardbookingnew", skate: @skate, reservado: @reservado, booking: @booking %>
     <div class="skater-card card mb-3">
         <div class="row no-gutters">
             <div class="col-md-4 p-2">

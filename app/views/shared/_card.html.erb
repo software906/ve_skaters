@@ -5,25 +5,20 @@
     <div class="card-body">
         <div class = "d-flex justify-content-between">
             <h5 class="card-title"><%=skate.ubicacion%></h5>
-            <p class="card-text">$<%=skate.precio_dia%>/dia</p>             
+            <p class="card-text">$<%=skate.precio_dia%>/dia</p>
         </div>
-        
+
         <div class = "d-flex justify-content-between">
             <div>
-                <% if policy(skate).edit?  %>
-                    <%= link_to "ver", skate_path(skate) %>
-                    <%= link_to "editar", edit_skate_path(skate) %>
-                <% else  %>
-                    <%= link_to "Rentar", skate_path(skate) %>
-                <% end %>
-            </div>            
-            <div class = "d-flex justify-content-between ">                
+                <%= link_to "Rentar", skate_path(skate) %>
+            </div>
+            <div class = "d-flex justify-content-between ">
                 <% rating = skate.reviews.reduce(0) do |sum, review|%>
-                    <% sum + review.rating%>   
+                    <% sum + review.rating%>
                 <%end%>
                 <h6 class = "mr-1">Rating:</h6>
                 <%if (skate.reviews.size.zero?) %>
-                    <% 5.times do |x|%> 
+                    <% 5.times do |x|%>
                         <i class="far fa-star"></i>
                     <%end%>
                 <%else%>
@@ -34,7 +29,7 @@
                         <i class="far fa-star"></i>
                     <%end%>
                 <%end%>
-                                            
+
             </div>
         </div>
         <h6 class="card-subtitle text-muted mt-1" id="card-distancia">

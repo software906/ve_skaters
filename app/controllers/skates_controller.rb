@@ -23,6 +23,7 @@ class SkatesController < ApplicationController
     end 
     @skates = @skates.sort_by { |skate| skate.user_skate_pos } if (params[:filter] == "cercania")
     
+
   end
 
   def show
@@ -43,13 +44,14 @@ class SkatesController < ApplicationController
 
     @reservado = false
     @review_act = false
+    @reserva = nil
     @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
     if @reserva.present?
       @reservado = true
-      @booking = Booking.find_by(skate_id: @skate, user_id: current_user)
+      @booking = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
+      @c_u = current_user.id
     end
-    if Booking.find_by(skate_id: @skate, user_id: current_user, status: false)
-
+    if Booking.find_by(skate_id: @skate, user_id: current_user, status: false, compled: true)
       @review_act = true
     end
   end
