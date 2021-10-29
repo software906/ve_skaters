@@ -16,7 +16,7 @@ class SkatesController < ApplicationController
         usuario = UserIp.new(skate)
         skate.user_skate_pos = usuario.distancia
       end
-  end   
+  end
 
     @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
     @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
@@ -42,13 +42,14 @@ class SkatesController < ApplicationController
 
     @reservado = false
     @review_act = false
+    @reserva = nil
     @reserva = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
     if @reserva.present?
       @reservado = true
-      @booking = Booking.find_by(skate_id: @skate, user_id: current_user)
+      @booking = Booking.find_by(skate_id: @skate, user_id: current_user, status: true)
+      @c_u = current_user.id
     end
-    if Booking.find_by(skate_id: @skate, user_id: current_user, status: false)
-
+    if Booking.find_by(skate_id: @skate, user_id: current_user, status: false, compled: true)
       @review_act = true
     end
   end
