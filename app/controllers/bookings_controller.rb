@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :skip_authorization, only: [:destroy, :status]
+  before_action :skip_authorization, only: [:destroy, :status, :compled]
   before_action :set_skate, only: [:new, :create, :update, :destroy]
   #skip_before_action :
   def new
@@ -21,6 +21,14 @@ class BookingsController < ApplicationController
   end
 
   def update
+  end
+
+  def compled
+    @booking = Booking.find(params[:id])
+    @booking.compled = true
+    @booking.save
+    puts params
+    redirect_to dashboard_path
   end
 
   def status

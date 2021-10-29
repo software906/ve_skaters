@@ -27,3 +27,17 @@
         <%== pagy_bootstrap_nav(@pagy) %>
     </div>
 </div>
+
+
+<h1>Mis rantas</h1>
+<table>
+  <th>usuario</th><th>Fecha</th><th>status</th><th>completada</th>
+<% @rents.each do |rent| %>
+  <tr><td><%=   rent.user.email %></td><td><%=   rent.time_from %></td><td><%=  rent.status %></td><td><%= rent.compled %></td>
+  <% if !rent.compled  %>
+    <td><%= link_to "completado", compled_path(rent), class: "btn btn-primary"%></td> </tr>
+  <% end %>
+<% end %>
+</table>
+</div>
+
