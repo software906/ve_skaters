@@ -1,0 +1,17 @@
+<h1>Mis Skate</h1>
+<% @my_skates.each do |skate| %>
+ <%=  skate.descripcion  %>
+ <%= link_to "Ver" %>
+ <%= link_to "Editar" %>
+ <%= link_to "Eliminar" %>
+<% end %>
+<h1>Mis Reservas</h1>
+<% @my_bookings.each do |booking| %>
+ <%=  booking.status  %>
+ <%= link_to "Ver" %>
+ <%= link_to "cancelar" %>
+<% end %>
+<h1>Mis ganacias</h1>
+<% @my_cash.each do |cash| %>
+ <%=  cash.skate.precio_dia %>
+<% end %>
