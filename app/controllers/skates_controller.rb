@@ -13,7 +13,6 @@ class SkatesController < ApplicationController
 
     @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
     @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
-
     @pagy, @skates = pagy(@skates, items: 8)
     @skates.each do |skate|
       if skate.present?
