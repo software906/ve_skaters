@@ -5,24 +5,16 @@
         <h5 class = "mr-2"> Ordenar por: </h5>
         <%= render "shared/dropdown"%>
     </div>
-
-  <% if user_signed_in? %>
-    <%= link_to new_skate_path, class: "btn btn-lg", style: "border-radius: 15px; color: white; background: #ffc107;" do %>
-      <i class="far fa-plus-square"></i> Agregar
-    <% end %>
-  <% end  %>
-
-
 </div>
 
-<div class = "cards-container mt-5 ml-5 mr-5 p-2 ">    
+<div class = "cards-container mt-5 ml-5 mr-5 p-2 ">
     <div class = "cards row d-flex justify-content-between mt-4 ml-2">
         <% @skates.each do |skate| %>
           <% if !policy(skate).edit?  %>
             <div class="mb-3 col-12 col-sm-6 col-lg-3">
               <%= link_to skate_path(skate), class:'text-decoration-none' do %>
                 <%= render "shared/card", skate: skate%>
-            <% end %>          
+            <% end %>
             </div>
           <% end %>
         <% end %>

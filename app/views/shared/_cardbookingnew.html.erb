@@ -1,25 +1,39 @@
-<div class="map-card card mb-3 col-6">
+<div class="map-card card mb-3 col-5 shadow bg-white">
       <div class="card-body">
       <% if reservado %>
-        <h5 class="card-title">Tu reserva</h5>
-        <p class="card-text">Detalles:
-        <ul>
-          <li>Rendador= <%= booking.skate.user.email %></li>
-          <li>Fecha = <%= booking.time_from %></li>
-          <li>Ubicación= <%= booking.skate.ubicacion %></li>
-          <li>Precio= <%= booking.skate.precio_dia %> $</li>
-        </ul>
+        <h4 class="card-title text-center mt-4">Tu reserva</h4>
+        <p class="card-text ml-5">Detalles:
+        <!--li>id= #<%= @booking.id %></li-->
+        <h5 class="ml-2">Rendador: <%= @booking.skate.user.email %></h5>
+        <h6 class="ml-2">Fecha: <%= @booking.time_from %></h6>
+        <h6 class="ml-2">Ubicación: <%= @booking.skate.ubicacion %></h6>
+        <h6 class="ml-2">Precio: <%= @booking.skate.precio_dia %> $</h6>
         </p>
-        <hr>
-        <%= link_to "Cancelar", skate_booking_path(skate,booking), class: "btn btn-primary", method: :delete, data: {confirm: "estas seguro"} %>
-
-
+        <%= link_to "Cancelar", skate_booking_path(skate,booking), class: "btn btn-lg w-100 mb-2 mt-4", style: "border-radius: 15px; color: white; background: #ffc107;", method: :delete, data: {confirm: "estas seguro"} %>
       <% else  %>
-        <%= simple_form_for [skate, booking] do |f| %>
-          <%= f.input :time_from, label: "fecha de reserva"%>
-          <%= f.input :descripcion, label: "nota:" %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
+        <div class="mt-5 mb-5 mx-auto">
+          <div class="title-text">
+              <div class="title signup text-center">
+                <h2>Reservar</h2>
+              </div>
+           </div>
+           <div class="form-container">
+              <div class="form-inner">
+                 <%= simple_form_for [skate, booking] do |f| %>
+                  <div class="field">
+                     <%= f.input :time_from, label: "fecha de reserva"%>
+                  </div>
+                  <div class="field">
+                    <%= f.input :descripcion, label: "nota:" %>
+                  </div>
+                  <div class="field btn mt-5">
+                    <div class="btn-layer"></div>
+                    <%= f.button :submit, class: "btn btn-primary" %>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+      </div>
       <% end %>
       </div>
     </div>
