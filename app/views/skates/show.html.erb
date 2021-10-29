@@ -2,8 +2,8 @@
 
 <div class = "container mt-5 pt-5">
 
-  <div class="row">
-    <div class="map-card card mb-3 col-6">
+  <div class="row card-deck">
+    <div class="map-card card mb-3 col-7 shadow bg-white">
         <div class="card-img-top d-flex justify-content-center mt-3">
             <%= render "shared/map" %>
         </div>
@@ -14,35 +14,49 @@
             <p class="card-text"><small class="text-muted">Last updated <%= distance_of_time_in_words_to_now(@skate.created_at) %> ago</small></p>
         </div>
     </div>
-    <div class="map-card card mb-3 col-6">
+    <div class="map-card card mb-3 col-5 shadow bg-white">
       <div class="card-body">
       <% if @reservado %>
-        <h5 class="card-title">Tu reserva</h5>
-        <p class="card-text">Detalles:
-        <ul>
-        <li>id= <%= @booking.id %></li>
-        <li>Rendador= <%= @booking.skate.user.email %></li>
-        <li>Fecha = <%= @booking.time_from %></li>
-        <li>Precio= <%= @booking.skate.precio_dia %> $</li>
-        <li>Ubicación= <%= @booking.skate.ubicacion %></li>
-        </ul>
+      <%= link_to "Borrar", skate_booking_path(@skate,@booking), method: :delete, data: {confirm: "estas seguro"}, style: "border-radius: 15px; color: white;", class: "btn btn-sm btn-danger" %>
+        <h4 class="card-title text-center mt-4">Tu reserva</h4>
+        <p class="card-text ml-5">Detalles:
+        <!--li>id= #<%= @booking.id %></li-->
+        <h5 class="ml-2">Rendador: <%= @booking.skate.user.email %></h5>
+        <h6 class="ml-2">Fecha: <%= @booking.time_from %></h6>
+        <h6 class="ml-2">Precio: <%= @booking.skate.precio_dia %> $</h6>
+        <h6 class="ml-2">Ubicación: <%= @booking.skate.ubicacion %></h6>
         </p>
-        <p><%= link_to "cancelar reserva", status_path(@booking) %></p>
-        <%= link_to "borrar", skate_booking_path(@skate,@booking), method: :delete, data: {confirm: "estas seguro"} %>
-
-
+        <%= link_to "cancelar reserva", status_path(@booking), style: "border-radius: 15px; color: white; background: #ffc107;", class: "btn btn-lg w-100 mb-2 mt-4" %>
       <% else  %>
-        <%= simple_form_for [@skate, @booking] do |f| %>
-          <%= f.input :time_from, label: "fecha de reserva"%>
-          <%= f.input :descripcion, label: "nota:" %>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
+        <div class="mt-5 mb-5 mx-auto">
+          <div class="title-text">
+              <div class="title signup text-center">
+                <h2>Reservar</h2>
+              </div>
+           </div>
+           <div class="form-container">
+              <div class="form-inner">
+                 <%= simple_form_for [@skate, @booking] do |f| %>
+                  <div class="field">
+                     <%= f.input :time_from, label: "fecha de reserva"%>
+                  </div>
+                  <div class="field">
+                    <%= f.input :descripcion, label: "nota:" %>
+                  </div>
+                  <div class="field btn mt-5">
+                    <div class="btn-layer"></div>
+                    <%= f.button :submit, class: "btn btn-primary" %>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+      </div>
       <% end %>
       </div>
     </div>
   </div>
 
-    <div class="skater-card card mb-3">
+    <div class="skater-card card mb-3 shadow">
         <div class="row no-gutters">
             <div class="col-md-4 p-2">
                 <%= render "shared/carouselShow", photos: @skate.photos, id_name: @skate.id%>

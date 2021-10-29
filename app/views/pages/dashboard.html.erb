@@ -1,17 +1,28 @@
-<h1>Mis Skate</h1>
-<% @my_skates.each do |skate| %>
- <%=  skate.descripcion  %>
- <%= link_to "Ver" %>
- <%= link_to "Editar" %>
- <%= link_to "Eliminar" %>
-<% end %>
-<h1>Mis Reservas</h1>
-<% @my_bookings.each do |booking| %>
- <%=  booking.status  %>
- <%= link_to "Ver" %>
- <%= link_to "cancelar" %>
-<% end %>
-<h1>Mis ganacias</h1>
-<% @my_cash.each do |cash| %>
- <%=  cash.skate.precio_dia %>
-<% end %>
+<%= render "shared/navbar2" %>
+
+<div class="dashboard row">
+  <div class="col-4">
+  <img src="https://th.bing.com/th/id/OIP.RWMUqJUkQ6JixK2mDsYV-QHaF_?pid=ImgDet&w=1111&h=900&rs=1" alt="">
+  <span><h4 class="text-center mt-3">Email: </h4> <p>fernandosapene13@gmail.com</p></span>
+  </div>
+  <div class="col-8">
+  <h1>Mis Skate</h1>
+  <% @my_skates.each do |skate| %>
+   <%=  skate.descripcion  %>
+   <%= link_to "Ver" %>
+   <%= link_to "Editar" %>
+   <%= link_to "Eliminar" %>
+  <% end %>
+  <h1>Mis Reservas</h1>
+  <% @my_bookings.each do |booking| %>
+   <%=  booking.status  %>
+   <%= link_to "Ver" %>
+   <%= link_to "cancelar" %>
+  <% end %>
+  <h1>Mis ganacias</h1>
+  <% @my_cash.each do |cash| %>
+   <%=  cash.skate.precio_dia %>
+  <% end %>
+  </div>
+
+</div>
