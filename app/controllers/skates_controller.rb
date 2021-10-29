@@ -16,8 +16,8 @@ class SkatesController < ApplicationController
         usuario = UserIp.new(skate)
         skate.user_skate_pos = usuario.distancia
       end
-  end
-    
+  end   
+
     @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
     @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
 
@@ -26,7 +26,7 @@ class SkatesController < ApplicationController
 
   def show
     @booking = Booking.new
-    usuario = UserIp.new(@skate)    
+    usuario = UserIp.new(@skate)
     @review = Review.new(skate: @skate)
     @marker_skate = {
                 lat: @skate.latitude,
@@ -36,8 +36,8 @@ class SkatesController < ApplicationController
 
     @marker_user = {
                 lat: usuario.user_pos[0],
-                lng: usuario.user_pos[1],                
-              }   
+                lng: usuario.user_pos[1],
+              }
 
 
     @reservado = false
