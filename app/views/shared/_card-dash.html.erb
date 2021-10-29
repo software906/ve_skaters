@@ -10,7 +10,8 @@
 
         <div class = "d-flex justify-content-between">
             <div>
-                <%= link_to "Rentar", skate_path(skate) %>
+                <%= link_to "Editar", edit_skate_path(skate) %>
+                <%= link_to "Eliminar", skate_path(skate), method: :delete, data: {confirm: "Estas seguro?"}, class:"text-danger" %>
             </div>
             <div class = "d-flex justify-content-between ml-2">
                 <% rating = skate.reviews.reduce(0) do |sum, review|%>
@@ -31,8 +32,6 @@
                 <%end%>
 
             </div>
-        </div>
-        <h6 class="card-subtitle text-muted mt-1" id="card-distancia">
-            Distancia: <%=skate.user_skate_pos%>Km </h6>
+        </div>       
     </div>
 </div>
