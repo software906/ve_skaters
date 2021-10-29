@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 
 class UserIp
-    def initialize(skate, ip)
+    def initialize(skate)
         url = 'https://api.ipify.org/?format=json'
         user_serialized = URI.open(url).read
         @ip = JSON.parse(user_serialized)["ip"]
