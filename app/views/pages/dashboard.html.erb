@@ -1,3 +1,19 @@
+<%= render "/shared/navbar2" %>
+<div class = container>
+    <div class = "d-flex">
+        <div class = "profile">
+            <div class="card mt-4" style="width: 18rem;">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "img-top rounded-circle border p-5", alt: "avatar-large" %>
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
+</div>
 <h1>Mis Skate</h1>
 <% @my_skates.each do |skate| %>
  <%=  skate.descripcion  %>
@@ -15,3 +31,4 @@
 <% @my_cash.each do |cash| %>
  <%=  cash.skate.precio_dia %>
 <% end %>
+</div>

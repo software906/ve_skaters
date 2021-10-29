@@ -5,14 +5,15 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <%= link_to "Precio Desc", skates_path(filter: "price-desc"), class:"dropdown-item"%>
     <%= link_to "Precio Asc", skates_path(filter: "price-asc"), class:"dropdown-item"%>
-    <%= link_to "Ubicacion", skates_path(filter: "ubicacion"), class:"dropdown-item"%>    
+    <%= link_to "Ubicacion", skates_path(filter: "ubicacion"), class:"dropdown-item"%>
+    <%= link_to "Cercania", skates_path(filter: "cercania"), class:"dropdown-item"%>   
     <div class="dropdown-item" id = "sub-menu">
       Categorias &raquo;
-      <div class="dropdown-submenu">        
-        <a class="dropdown-item" href="#">Patinetas</a>
-        <a class="dropdown-item" href="#">Bicicletas</a>       
-        <a class="dropdown-item" href="#">Patines</a>       
-        <a class="dropdown-item" href="#">Monopatin</a>        
+      <div class="dropdown-submenu">
+        <%= link_to "Patinetas", skates_path(categoria: "Patineta"), class:"dropdown-item"%>
+        <%= link_to "Bicicletas", skates_path(categoria: "Bicicleta"), class:"dropdown-item"%>
+        <%= link_to "Patines", skates_path(categoria: "Patines"), class:"dropdown-item"%>
+        <%= link_to "Monopatin", skates_path(categoria: "Monopatin"), class:"dropdown-item"%>              
     </div> 
     </div>       
   </div>
