@@ -66,7 +66,7 @@ class SkatesController < ApplicationController
     @skate.user = current_user
     authorize @skate
     if @skate.save
-      redirect_to skates_path
+      redirect_to dashboard_path
     else
       render :new
     end
