@@ -39,11 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
   initUpdateGoTop();
-  setInterval(refresh, 1000);
-  const refresh = () => {
-    getMap();
-  };
-
+  getMap();
   initSweetalert('#sweet-alert-demo', {
     title: "Bienvenido",
     text: "This is a great alert, isn't it?",
