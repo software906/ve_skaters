@@ -2,10 +2,10 @@ require 'json'
 require 'open-uri'
 
 class UserIp
-    def initialize(skate)
+    def initialize(skate, ip)
         url = 'https://api.ipify.org/?format=json'
         user_serialized = URI.open(url).read
-        @ip = request.remote_ip     # JSON.parse(user_serialized)["ip"]
+        @ip = ip     # JSON.parse(user_serialized)["ip"]
         results = Geocoder.search(@ip)
         @user_pos = results.first.coordinates
         @skate_pos = [skate.latitude, skate.longitude]

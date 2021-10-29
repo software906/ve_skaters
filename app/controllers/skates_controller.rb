@@ -13,11 +13,11 @@ class SkatesController < ApplicationController
 
     @skates = @skates.filter_by_categoria(params[:categoria]) if params[:categoria]
     @skates = @skates.search_by_ubicacion_and_descripcion(params[:search]) if params[:search].present?
-
+    @ip = request.remote_ip
     @pagy, @skates = pagy(@skates, items: 8)
     @skates.each do |skate|
       if skate.present?
-        usuario = UserIp.new(skate)
+        usuario = UserIp.new(skate, @ip)
         skate.user_skate_pos = usuario.distancia
       end
     end
